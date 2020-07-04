@@ -1,6 +1,6 @@
 'use strict';
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
-const APP_URL = "https://fbstarter.herokuapp.com";
+const APP_URL = "https://mccygn.herokuapp.com";
 
 //new text
 
@@ -116,8 +116,9 @@ app.use('/uploads', express.static('uploads'));
 
 
 app.get('/',function(req,res){    
-    res.send('your app is up and running');
+    res.send('Your app is up and running');
 });
+
 
 app.get('/test',function(req,res){    
     res.render('test.ejs');
@@ -213,7 +214,7 @@ app.post('/imagepick',function(req,res){
 
 
 /*********************************************
-END Gallery Page
+Gallery Page
 **********************************************/
 
 /*********************************************
@@ -586,8 +587,13 @@ const handleMessage = (sender_psid, received_message) => {
       }else{
           user_message = user_message.toLowerCase(); 
 
-          switch(user_message) { 
-
+          switch(user_message) {
+        case "hi":
+          greeting(sender_psid);
+          break;
+        case "hello":        
+          helloGreeting(sender_psid);
+          break;
         case "text":
           textReply(sender_psid);
           break;
@@ -634,7 +640,7 @@ const handleMessage = (sender_psid, received_message) => {
         default:
             defaultReply(sender_psid);
         }          
-      }    
+      }     
       
     }
 
@@ -950,7 +956,7 @@ function webviewTest(sender_psid){
               {
                 "type": "web_url",
                 "title": "webview",
-                "url":"https://fbstarter.herokuapp.com/webview/"+sender_psid,
+                "url": APP_URL+"/webview/"+sender_psid,
                  "webview_height_ratio": "full",
                 "messenger_extensions": true,          
               },
@@ -964,8 +970,16 @@ function webviewTest(sender_psid){
 }
 
 
+const greeting =(sender_psid) => {
+  let response = {"text": "Minalarbar. How may I help you?"};
+  callSend(sender_psid, response);
+}
 
 
+const helloGreeting =(sender_psid) => {
+  let response = {"text": "Hello Yangan Campus"};
+  callSend(sender_psid, response);
+}
 
 
 const textReply =(sender_psid) => {
@@ -1171,8 +1185,6 @@ const setupGetStartedButton = (res) => {
 FUNCTION TO SET UP PERSISTENT MENU
 ***********************************/
 
-
-
 const setupPersistentMenu = (res) => {
   var messageData = { 
       "persistent_menu":[
@@ -1253,9 +1265,8 @@ FUNCTION TO ADD WHITELIST DOMAIN
 const whitelistDomains = (res) => {
   var messageData = {
           "whitelisted_domains": [
-             "https://fbstarter.herokuapp.com" , 
-             "https://herokuapp.com" ,
-             'https://blife-messgerbot.herokuapp.com'                          
+             "https://mccygn.herokuapp.com" , 
+             "https://herokuapp.com" ,                                     
           ]               
   };  
   request({
