@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>ddmo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ </head>
+
+  <body>
+  <script>
+      (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/messenger.Extensions.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'Messenger'));
+
+    const APP_ID = 544769076153407;    
+    var senderID = "";
+    
+    window.extAsyncInit = function() {
+        MessengerExtensions.getContext(APP_ID, 
+          function success(thread_context){
+           senderID = thread_context.psid;
+          },
+          function error(err){
+            console.log(err);
+          }
+        );        
+    };
+  </script>
+  
+	<h1>Booking Number: <%= data.booking_number %></h1>
+
+  
+
+  <form id="form" method="post" action="https://fbstarter.herokuapp.com/updateprivatetour/">
+  <div class="form-group">
+    <label for="name">Where do you want to go</label>
+    <select class="form-control" name="destination" id="destination">
+      <option>Yangon</option>
+      <option>Mandalay</option>
+      <option>Nay Pyi Taw</option>
+      <option>Taungyi</option>
+      <option>Inn Lay</option>
+    </select> 
+  </div>
+  <div class="form-group">
+    <label for="title">What activity are you interested</label>
+    <input type="text" class="form-control" id="activities" name="activities" value="<%= data.activities %>">
+  </div>
+  <div class="form-group">
+    <label for="title">How many guests</label>
+    <input type="text" class="form-control" id="guests" name="guests" value="<%= data.guests %>">
+  </div>
+  <div class="form-group">
+    <label for="title">Travel mode </label>
+    <input type="text" class="form-control" id="travel_mode" name="travel_mode" value="<%= data.travel_mode %>">
+  </div>
+  <div class="form-group">
+    <label for="title">Travel option</label>
+    <input type="text" class="form-control" id="travel_option" name="travel_option" value="<%= data.travel_option %>">
+  </div>
+  <div class="form-group">
+    <label for="name">Your choice of hotel</label>
+    <input type="text" class="form-control" id="hotel" name="hotel" value="<%= data.hotel %>">    
+  </div>
+  <div class="form-group">
+    <label for="name">Your choice of restaurent</label>
+    <input type="text" class="form-control" id="restaurent" name="restaurent" value="<%= data.restaurent %>">    
+  </div>
+  <div class="form-group">
+    <label for="name">Your name please</label>
+    <input type="text" class="form-control" id="name" name="name" value="<%= data.name %>">    
+  </div>
+  <div class="form-group">
+    <label for="title">Mobile</label>
+    <input type="text" class="form-control" id="mobile" name="mobile" value="<%= data.mobile %>">
+  </div>
+  <input type="hidden"  id="sender" name="doc_id" value="<%= data.doc_id %>"> 
+  <input type="hidden"  id="sender" name="booking_number" value="<%= data.booking_number %>">  
+  <input type="hidden"  id="sender" name="sender" value="<%= sender_id %>">
+  <input type="submit" value="Confirm Booking"> 
+  </form>
+
+
+	
+  <script>
+      
+   
+      const windowShut = () => {
+        MessengerExtensions.requestCloseBrowser(function success() {
+          console.log("success");          
+        }, function error(err) {
+          console.log(err);
+        });
+      }
+      
+      document.getElementById("form").addEventListener("submit", windowShut);       
+
+
+     
+
+  </script>
+
+  </body>
+
+</html>

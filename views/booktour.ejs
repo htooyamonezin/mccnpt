@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>ddmo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ </head>
+
+  <body>
+  <script>
+      (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/messenger.Extensions.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'Messenger'));
+
+    const APP_ID = 544769076153407;    
+    var senderID = "";
+    
+    window.extAsyncInit = function() {
+        MessengerExtensions.getContext(APP_ID, 
+          function success(thread_context){
+           senderID = thread_context.psid;
+          },
+          function error(err){
+            console.log(err);
+          }
+        );        
+    };
+  </script>
+  
+	<h1><%= package.title %></h1>
+ 
+  
+
+  <form id="form" method="post" action="https://fbstarter.herokuapp.com/booktour/">
+  <div class="form-group ">
+      <label for="restaurent">Choose Restaurent</label><br>
+      <select id="restaurent" name="restaurent" class="form-control">
+        <option value="<%= package.restaurents[0] %>" selected><%= package.restaurents[0] %></option>
+        <option value="<%= package.restaurents[1] %>"><%= package.restaurents[1] %></option>
+        <option value="<%= package.restaurents[2] %>"><%= package.restaurents[2] %></option>
+      </select>
+  </div>
+  <div class="form-group ">
+      <label for="hotel">Choose Hotel</label><br>
+      <select id="hotel" name="hotel" class="form-control">
+        <option value="<%= package.hotels[0] %>" selected><%= package.hotels[0] %></option>
+        <option value="<%= package.hotels[1] %>"><%= package.hotels[1] %></option>
+        <option value="<%= package.hotels[2] %>"><%= package.hotels[2] %></option>
+      </select>
+  </div>
+  <div class="form-group">
+    <label for="name">Name</label><br>
+    <input type="text" class="form-control form-control-lg" id="name" name="name" placeholder="Enter your name">    
+  </div>
+  <div class="form-group">
+    <label for="title">Mobile</label><br>
+    <input type="text" class="form-control form-control-lg" id="mobile" name="mobile" placeholder="Title">
+  </div>
+  <input type="hidden"  id="tour_package" name="tour_package" value="<%= package.title %>">    
+  <input type="hidden"  id="sender" name="sender" value="<%= sender_id %>">
+  <input type="submit" value="Confirm Booking"> 
+  </form>
+
+
+	
+  <script>
+      
+   
+      const windowShut = () => {
+        MessengerExtensions.requestCloseBrowser(function success() {
+          console.log("success");          
+        }, function error(err) {
+          console.log(err);
+        });
+      }
+
+      
+      document.getElementById("form").addEventListener("submit", windowShut);       
+
+
+     
+
+  </script>
+
+  </body>
+
+</html>
