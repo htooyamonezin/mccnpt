@@ -1,6 +1,6 @@
 'use strict';
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
-const APP_URL = "https://htoo.herokuapp.com/";
+const APP_URL = "https://htoo.herokuapp.com";
 
 //new text
 
@@ -696,7 +696,7 @@ function adminCreatePackage(sender_psid){
               {
                 "type": "web_url",
                 "title": "create",
-                "url":"https://fbstarter.herokuapp.com/addpackage/"+sender_psid,
+                "url": APP_URL + "/addpackage/"+sender_psid,
                  "webview_height_ratio": "full",
                 "messenger_extensions": true,          
               },
@@ -721,7 +721,7 @@ const showTourPackages = (sender_psid) => {
       //obj._id  = doc.id ;        
       obj.title = doc.data().title;       
       obj.image_url = doc.data().image;      
-      obj.buttons = [{"type":"web_url", "title":"BOOK NOW", "url":"https://fbstarter.herokuapp.com/booktour/"+doc.data().sku+"/"+sender_psid, "webview_height_ratio": "full", "messenger_extensions": true,}]; 
+      obj.buttons = [{"type":"web_url", "title":"BOOK NOW", "url": APP_URL + "/booktour/"+doc.data().sku+"/"+sender_psid, "webview_height_ratio": "full", "messenger_extensions": true,}]; 
       elementItems.push(obj);     
     });
 
@@ -758,7 +758,7 @@ const privateTour = (sender_psid) => {
               {
                 "type": "web_url",
                 "title": "create",
-                "url":"https://fbstarter.herokuapp.com/privatetour/"+sender_psid,
+                "url": APP_URL + "/privatetour/"+sender_psid,
                  "webview_height_ratio": "full",
                 "messenger_extensions": true,          
               },
@@ -784,7 +784,7 @@ const updateBooking = (sender_psid, ref_num) => {
               {
                 "type": "web_url",
                 "title": "Update",
-                "url":"https://fbstarter.herokuapp.com/updateprivatetour/"+ref_num+"/"+sender_psid,
+                "url": APP_URL + "/updateprivatetour/"+ref_num+"/"+sender_psid,
                  "webview_height_ratio": "full",
                 "messenger_extensions": true,          
               },
@@ -920,7 +920,7 @@ const showImages = (sender_psid) => {
               {
                 "type": "web_url",
                 "title": "enter",
-                "url":"https://fbstarter.herokuapp.com/showimages/"+sender_psid,
+                "url": APP_URL + "/showimages/"+sender_psid,
                  "webview_height_ratio": "full",
                 "messenger_extensions": true,          
               },
@@ -1098,7 +1098,7 @@ function testDelete(sender_psid){
               {
                 "type": "web_url",
                 "title": "enter",
-                "url":"https://fbstarter.herokuapp.com/test/",
+                "url": APP_URL + "/test/",
                  "webview_height_ratio": "full",
                 "messenger_extensions": true,          
               },
@@ -1265,7 +1265,7 @@ FUNCTION TO ADD WHITELIST DOMAIN
 const whitelistDomains = (res) => {
   var messageData = {
           "whitelisted_domains": [
-             "https://mccygn.herokuapp.com" , 
+             "https://htoo.herokuapp.com" , 
              "https://herokuapp.com" ,                                     
           ]               
   };  
