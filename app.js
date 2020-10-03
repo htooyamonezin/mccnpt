@@ -591,6 +591,10 @@ const handleMessage = (sender_psid, received_message) => {
         case "hi":
           greeting(sender_psid);
           break;
+        case "makeup":
+          makupCourse(sender_psid);
+          break;
+
         case "hello":        
           helloGreeting(sender_psid);
           break;
@@ -721,7 +725,7 @@ const showTourPackages = (sender_psid) => {
       //obj._id  = doc.id ;        
       obj.title = doc.data().title;       
       obj.image_url = doc.data().image;      
-      obj.buttons = [{"type":"web_url", "title":"BOOK NOW", "url": APP_URL + "/booktour/"+doc.data().sku+"/"+sender_psid, "webview_height_ratio": "full", "messenger_extensions": true,}]; 
+      obj.buttons = [{"type":"web_url", "title":"BOOK NOW", "url": APP_URL+"/booktour/"+doc.data().sku+"/"+sender_psid, "webview_height_ratio": "full", "messenger_extensions": true,}]; 
       elementItems.push(obj);     
     });
 
@@ -920,7 +924,7 @@ const showImages = (sender_psid) => {
               {
                 "type": "web_url",
                 "title": "enter",
-                "url": APP_URL + "/showimages/"+sender_psid,
+                "url": APP_URL+"/showimages/"+sender_psid,
                  "webview_height_ratio": "full",
                 "messenger_extensions": true,          
               },
@@ -969,6 +973,40 @@ function webviewTest(sender_psid){
   callSendAPI(sender_psid, response);
 }
 
+/**************
+start makeup
+**************/
+
+const makupCourse = (sender_psid) => {
+   let response1 = {"text": "Welcome From My Makeup Review"};
+   let response2 = {
+    "text": "Please select Makeup Course",
+    "quick_replies":[
+            {
+              "content_type":"text",
+              "title":"Expensive Product Review",
+              "payload":"Expensive Product",              
+            },{
+              "content_type":"text",
+              "title":"Cheaper Product Review",
+              "payload":"Cheaper Product Review",             
+            },{
+              "content_type":"text",
+              "title":"Makeup Class",
+              "payload":"Self Makeup Class", 
+            }
+
+    ]
+  };
+
+  callSend(sender_psid, response1).then(()=>{
+    return callSend(sender_psid, response2);
+  });
+}
+
+/**************
+end hospital
+**************/
 
 const greeting =(sender_psid) => {
   let response = {"text": "Minalarbar. How may I help you?"};
