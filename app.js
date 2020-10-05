@@ -607,8 +607,7 @@ const handleMessage = (sender_psid, received_message) => {
         case "quick":
           quickReply(sender_psid);
           break;
-        case "button":
-          console.log('CASE: BUTTON');            
+        case "button":         
           buttonReply(sender_psid);
           break;
         case "webview":
