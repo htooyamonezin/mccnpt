@@ -594,7 +594,7 @@ const handleMessage = (sender_psid, received_message) => {
         case "makeup":
           makupCourse(sender_psid);
           break;
-        case "makeup review":
+        case "expensive makeup":
           showMakeup(sender_psid);
           break;
 
@@ -940,6 +940,8 @@ const showImages = (sender_psid) => {
   callSendAPI(sender_psid, response);
 }
 
+const showMakeup
+
 /*********************************************
 END GALLERY SAMPLE
 **********************************************/
@@ -1001,29 +1003,6 @@ const makupCourse = (sender_psid) => {
   callSend(sender_psid, response1).then(()=>{
     return callSend(sender_psid, response2);
   });
-}
-
-const showMakeup = (sender_psid) => {
-    let response = {
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "generic",
-          "elements": [{
-            "title": "Expensive Makeup",
-            "subtitle": "Makeup Review",
-            "image_url":"https://image.freepik.com/free-vector/doctor-icon-avatar-white_136162-58.jpg",                       
-            "buttons": [
-                {
-                  "type": "postback",
-                  "title": "Expensive Makeup",
-                  "payload": "Expensive Makeup",
-                },               
-              ],
-          }
-  
-  callSend(sender_psid, response);
-
 }
 
 /**************
