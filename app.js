@@ -1004,34 +1004,54 @@ const makupCourse = (sender_psid) => {
 }
 
 const showMakeup = (sender_psid) => {
-
     let response = {
       "attachment": {
         "type": "template",
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "Expensive Makeup",
-            "subtitle": "Makeup Review"
-            "image_url":"https://www.google.com/imgres?imgurl=https%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2020%2F03%2F12%2Ffashion%2FVIRUS-MAKEUP1%2FVIRUS-MAKEUP1-superJumbo.jpg&imgrefurl=https%3A%2F%2Fwww.nytimes.com%2F2020%2F03%2F11%2Fstyle%2Fmakeup-coronavirus.html&tbnid=2ZIayl2m-ktltM&vet=12ahUKEwjjr-KZyJ3sAhURFXIKHQR4CPEQMygAegQIARB9..i&docid=rkRroBSazXcdCM&w=2048&h=1367&q=makeup&ved=2ahUKEwjjr-KZyJ3sAhURFXIKHQR4CPEQMygAegQIARB9",                       
+            "title": "James Smith",
+            "subtitle": "General Surgeon",
+            "image_url":"https://image.freepik.com/free-vector/doctor-icon-avatar-white_136162-58.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "Expensive Makeup",
-                  "payload": "Expensive Makeup",
-                },
+                  "title": "James Smith",
+                  "payload": "Doctor:James Smith",
+                },               
+              ],
+          },{
+            "title": "Kenneth Martinez",
+            "subtitle": "General Surgeon",
+            "image_url":"https://image.freepik.com/free-vector/doctor-icon-avatar-white_136162-58.jpg",                       
+            "buttons": [
                 {
                   "type": "postback",
-                  "title": "No!",
-                  "payload": "no",
-                }
+                  "title": "Kenneth Martinez",
+                  "payload": "Doctor:Kenneth Martinez",
+                },               
               ],
-          }]
+          },{
+            "title": "Barbara Young",
+            "subtitle": "General Surgeon",
+            "image_url":"https://cdn.iconscout.com/icon/free/png-512/doctor-567-1118047.png",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Barbara Young",
+                  "payload": "Doctor:Barbara Young",
+                },               
+              ],
+          }
+
+          ]
         }
       }
     }
 
+  
   callSend(sender_psid, response);
+
 }
 
 /**************
