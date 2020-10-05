@@ -1011,7 +1011,7 @@ const showMakeup = (sender_psid) => {
           "template_type": "generic",
           "elements": [{
             "title": "James Smith",
-            "subtitle": "General Surgeon",
+            "subtitle": "Makeup Review",
             "image_url":"https://image.freepik.com/free-vector/doctor-icon-avatar-white_136162-58.jpg",                       
             "buttons": [
                 {
