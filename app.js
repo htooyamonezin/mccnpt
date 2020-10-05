@@ -591,13 +591,6 @@ const handleMessage = (sender_psid, received_message) => {
         case "hi":
           greeting(sender_psid);
           break;
-        case "makeup":
-          makupCourse(sender_psid);
-          break;
-        case "expensive makeup":
-          showMakeup(sender_psid);
-          break;
-
         case "hello":        
           helloGreeting(sender_psid);
           break;
@@ -981,32 +974,9 @@ function webviewTest(sender_psid){
 start makeup
 **************/
 
-const makupCourse = (sender_psid) => {
-   let response1 = {"text": "Welcome From My Makeup Review"};
-   let response2 = {
-    "text": "Please select Makeup Course",
-    "quick_replies":[
-            {
-              "content_type":"text",
-              "title":"Makup Review",
-              "payload":"Makeup Review",              
-            },
-            {
-              "content_type":"text",
-              "title":"Self-Makeup Class",
-              "payload":"Self-Makeup Class", 
-            }
-
-    ]
-  };
-
-  callSend(sender_psid, response1).then(()=>{
-    return callSend(sender_psid, response2);
-  });
-}
 
 /**************
-end hospital
+end makeup
 **************/
 
 const greeting =(sender_psid) => {
