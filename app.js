@@ -594,9 +594,6 @@ const handleMessage = (sender_psid, received_message) => {
         case "makeup":
           makupCourse(sender_psid);
           break;
-        case "expensive makeup":
-          showMakeup(sender_psid);
-          break;
 
         case "hello":        
           helloGreeting(sender_psid);
@@ -940,7 +937,6 @@ const showImages = (sender_psid) => {
   callSendAPI(sender_psid, response);
 }
 
-const showMakeup
 
 /*********************************************
 END GALLERY SAMPLE
@@ -988,13 +984,16 @@ const makupCourse = (sender_psid) => {
     "quick_replies":[
             {
               "content_type":"text",
-              "title":"Makup Review",
-              "payload":"Makeup Review",              
-            },
-            {
+              "title":"Expensive Product Review",
+              "payload":"Expensive Product",              
+            },{
               "content_type":"text",
-              "title":"Self-Makeup Class",
-              "payload":"Self-Makeup Class", 
+              "title":"Cheaper Product Review",
+              "payload":"Cheaper Product Review",             
+            },{
+              "content_type":"text",
+              "title":"Makeup Class",
+              "payload":"Self Makeup Class", 
             }
 
     ]
@@ -1005,32 +1004,8 @@ const makupCourse = (sender_psid) => {
   });
 }
 
-const showMakeup = (sender_psid) => {
-
-    let response = {
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "generic",
-          "elements": [{
-            "title": "Expensive",
-            "subtitle": "Makeup Review"
-            "image_url":"https://www.mindrops.com/images/nodejs-image.png",                       
-            "buttons": [
-                {
-                  "type": "postback",
-                  "title": "Expensive",
-                  "payload": "Expensive",
-                },
-              ],
-          }]
-        }
-      }
-    };
-     callSend(sender_psid, response)
-      }
 /**************
-end makeup
+end hospital
 **************/
 
 const greeting =(sender_psid) => {
