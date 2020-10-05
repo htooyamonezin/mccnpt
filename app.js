@@ -594,6 +594,9 @@ const handleMessage = (sender_psid, received_message) => {
         case "makeup":
           makupCourse(sender_psid);
           break;
+        case "makeup review":
+          showMakeup(sender_psid);
+          break;
 
         case "hello":        
           helloGreeting(sender_psid);
@@ -937,7 +940,6 @@ const showImages = (sender_psid) => {
   callSendAPI(sender_psid, response);
 }
 
-
 /*********************************************
 END GALLERY SAMPLE
 **********************************************/
@@ -984,16 +986,13 @@ const makupCourse = (sender_psid) => {
     "quick_replies":[
             {
               "content_type":"text",
-              "title":"Expensive Product Review",
-              "payload":"Expensive Product",              
-            },{
+              "title":"Makup Review",
+              "payload":"Makeup Review",              
+            },
+            {
               "content_type":"text",
-              "title":"Cheaper Product Review",
-              "payload":"Cheaper Product Review",             
-            },{
-              "content_type":"text",
-              "title":"Makeup Class",
-              "payload":"Self Makeup Class", 
+              "title":"Self-Makeup Class",
+              "payload":"Self-Makeup Class", 
             }
 
     ]
@@ -1002,6 +1001,37 @@ const makupCourse = (sender_psid) => {
   callSend(sender_psid, response1).then(()=>{
     return callSend(sender_psid, response2);
   });
+}
+
+const showMakeup = (sender_psid) => {
+
+    let response = {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [{
+            "title": "Expensive Makeup",
+            "subtitle": "Makeup Review"
+            "image_url":"https://www.google.com/imgres?imgurl=https%3A%2F%2Fstatic01.nyt.com%2Fimages%2F2020%2F03%2F12%2Ffashion%2FVIRUS-MAKEUP1%2FVIRUS-MAKEUP1-superJumbo.jpg&imgrefurl=https%3A%2F%2Fwww.nytimes.com%2F2020%2F03%2F11%2Fstyle%2Fmakeup-coronavirus.html&tbnid=2ZIayl2m-ktltM&vet=12ahUKEwjjr-KZyJ3sAhURFXIKHQR4CPEQMygAegQIARB9..i&docid=rkRroBSazXcdCM&w=2048&h=1367&q=makeup&ved=2ahUKEwjjr-KZyJ3sAhURFXIKHQR4CPEQMygAegQIARB9",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Expensive Makeup",
+                  "payload": "Expensive Makeup",
+                },
+                {
+                  "type": "postback",
+                  "title": "No!",
+                  "payload": "no",
+                }
+              ],
+          }]
+        }
+      }
+    }
+
+  callSend(sender_psid, response);
 }
 
 /**************
