@@ -591,6 +591,10 @@ const handleMessage = (sender_psid, received_message) => {
         case "hi":
           greeting(sender_psid);
           break;
+        case "makeup":
+          makeupType(sender_psid);
+          break;
+
         case "hello":        
           helloGreeting(sender_psid);
           break;
@@ -899,7 +903,33 @@ const generateRandom = (length) => {
 END TOUR
 **********************************************/
 
+/*********************************************
+makeup
+**********************************************/
+const makeupType = (sender_psid) => {
+   let response1 = {"text": "Welcome to Glamour By Moon Page"};
+   let response2 = {"text": "What about you want to know?",
+    "quick_replies":[
+            {
+              "content_type":"text",
+              "title":"Makeup Review",
+              "payload":"Makeup Review",              
+            },{
+              "content_type":"text",
+              "title":"Self-Makeup Class",
+              "payload":"Self-Makeup Class",             
+            }
+    ]
+  };
 
+  callSend(sender_psid, response1).then(()=>{
+    return callSend(sender_psid, response2);
+  });
+}
+
+/*********************************************
+end makeup
+**********************************************/
 
 
 
