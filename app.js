@@ -976,7 +976,7 @@ const greeting =(sender_psid) => {
 
 
 const helloGreeting =(sender_psid) => {
-  let response = {"text": "Hello, Welcome to my bot and if you want to know something write 'makeup'};
+  let response = {"text": "Hello Yangan Campus"};
   callSend(sender_psid, response);
 }
 
