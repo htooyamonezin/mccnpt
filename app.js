@@ -591,10 +591,6 @@ const handleMessage = (sender_psid, received_message) => {
         case "hi":
           greeting(sender_psid);
           break;
-        case "makeup":
-          makupCourse(sender_psid);
-          break;
-
         case "hello":        
           helloGreeting(sender_psid);
           break;
@@ -973,41 +969,6 @@ function webviewTest(sender_psid){
   callSendAPI(sender_psid, response);
 }
 
-/**************
-start makeup
-**************/
-
-const makupCourse = (sender_psid) => {
-   let response1 = {"text": "Welcome From My Makeup Review"};
-   let response2 = {
-    "text": "Please select Makeup Course",
-    "quick_replies":[
-            {
-              "content_type":"text",
-              "title":"Expensive Product Review",
-              "payload":"Expensive Product",              
-            },{
-              "content_type":"text",
-              "title":"Cheaper Product Review",
-              "payload":"Cheaper Product Review",             
-            },{
-              "content_type":"text",
-              "title":"Makeup Class",
-              "payload":"Self Makeup Class", 
-            }
-
-    ]
-  };
-
-  callSend(sender_psid, response1).then(()=>{
-    return callSend(sender_psid, response2);
-  });
-}
-
-/**************
-end hospital
-**************/
-
 const greeting =(sender_psid) => {
   let response = {"text": "Minalarbar. How may I help you?"};
   callSend(sender_psid, response);
@@ -1015,7 +976,7 @@ const greeting =(sender_psid) => {
 
 
 const helloGreeting =(sender_psid) => {
-  let response = {"text": "Hello Yangan Campus"};
+  let response = {"text": "Hello, Welcome to my bot and if you want to know something write 'makeup'};
   callSend(sender_psid, response);
 }
 
