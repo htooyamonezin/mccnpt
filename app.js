@@ -594,9 +594,6 @@ const handleMessage = (sender_psid, received_message) => {
         case "makeup":
           makeupType(sender_psid);
           break;
-        case "makeup review":
-          showType(sender_psid);
-          break;
 
         case "hello":        
           helloGreeting(sender_psid);
@@ -929,53 +926,6 @@ const makeupType = (sender_psid) => {
     return callSend(sender_psid, response2);
   });
 }
-
-const showType = (sender_psid) => {
-    let response = {
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "generic",
-          "elements": [{
-            "title": "Expemsive",
-            "subtitle": "General Surgeon",
-            "image_url":"https://image.freepik.com/free-vector/doctor-icon-avatar-white_136162-58.jpg",                       
-            "buttons": [
-                {
-                  "type": "postback",
-                  "title": "Expemsive",
-                  "payload": "Expemsive",
-                },               
-              ],
-          },{
-            "title": "Kenneth Martinez",
-            "subtitle": "General Surgeon",
-            "image_url":"https://image.freepik.com/free-vector/doctor-icon-avatar-white_136162-58.jpg",                       
-            "buttons": [
-                {
-                  "type": "postback",
-                  "title": "Kenneth Martinez",
-                  "payload": ":Kenneth Martinez",
-                },               
-              ],
-          },{
-            "title": "Barbara Young",
-            "subtitle": "General Surgeon",
-            "image_url":"https://cdn.iconscout.com/icon/free/png-512/doctor-567-1118047.png",                       
-            "buttons": [
-                {
-                  "type": "postback",
-                  "title": "Barbara Young",
-                  "payload": "Doctor:Barbara Young",
-                },               
-              ],
-          }
-
-          ]
-        }
-      }
-    }
-
 
 /*********************************************
 end makeup
