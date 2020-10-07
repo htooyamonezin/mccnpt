@@ -594,7 +594,7 @@ const handleMessage = (sender_psid, received_message) => {
         case "makeup":
           makeupType(sender_psid);
           break;
-        case "makeup type":
+        case "makeup review":
           showType(sender_psid);
           break;
 
