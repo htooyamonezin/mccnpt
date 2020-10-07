@@ -908,7 +908,7 @@ makeup
 **********************************************/
 const makeupType = (sender_psid) => {
    let response1 = {"text": "Welcome to Glamour By Moon Page"};
-   let response2 = {"text": "What about you want to know?",
+   let response2 = {"text": "What about do you want to know?",
     "quick_replies":[
             {
               "content_type":"text",
