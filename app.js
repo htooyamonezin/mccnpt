@@ -983,7 +983,7 @@ const showReview = (sender_psid) => {
           "elements": [{
             "title": "Makeup Product Review",
             "subtitle": "Makeup Review",
-            "image_url":"https://www.freepik.com/free-vector/pink-hand-drawn-cosmetic-elements_900435.jpg",                       
+            "image_url":"https://previews.123rf.com/images/loonara/loonara1611/loonara161100208/68889185-professional-makeup-brushes-and-tools-make-up-products-kit-flatlay-on-white-background.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
