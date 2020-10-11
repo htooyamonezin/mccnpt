@@ -90,7 +90,6 @@ app.post('/webhook', (req, res) => {
       let webhook_event = entry.messaging[0];
       let sender_psid = webhook_event.sender.id; 
 
-      console.log("Event: ", webhook_event );
 
       if (webhook_event.message) {
         if(webhook_event.message.quick_reply){
@@ -507,8 +506,12 @@ Function to Handle when user send quick reply message
 ***********************************************/
 
 function handleQuickReply(sender_psid, received_message) {
+    console.log('QUICK REPLY', received_message);
   
-  switch(received_message) {        
+  switch(received_message) {   
+        case "makeuptype":
+          makeupType(sender_psid);
+          break;     
         case "on":
             showQuickReplyOn(sender_psid);
           break;
@@ -526,6 +529,7 @@ Function to Handle when user send text message
 ***********************************************/
 
 const handleMessage = (sender_psid, received_message) => {
+    console.log('TEXT REPLY', received_message);
   //let message;
   let response;
 
@@ -596,9 +600,6 @@ const handleMessage = (sender_psid, received_message) => {
         case "makeup":
           makeupType(sender_psid);
           break;
-        case "makeuptype":
-          makeupType(sender_psid);
-          break;
         case "hello":        
           helloGreeting(sender_psid);
           break;
@@ -653,12 +654,49 @@ const handleMessage = (sender_psid, received_message) => {
 
 }
 
+/*********************************************
+Function to handle when user send attachment
+**********************************************/
 
+const handleAttachments = (sender_psid, attachments) => {
+  
+  console.log('ATTACHMENT', attachments);
+  let response; 
+  let attachment_url = attachments[0].payload.url;
+    response = {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [{
+            "title": "Is this the right picture?",
+            "subtitle": "Tap a button to answer.",
+            "image_url": attachment_url,
+            "buttons": [
+              {
+                "type": "postback",
+                "title": "Yes!",
+                "payload": "yes-attachment",
+              },
+              {
+                "type": "postback",
+                "title": "No!",
+                "payload": "no-attachment",
+              }
+            ],
+          }]
+        }
+      }
+    }
+    callSend(sender_psid, response);
+}
 
 /*********************************************
 Function to handle when user click button
 **********************************************/
 const handlePostback = (sender_psid, received_postback) => {
+
+    console.log('BUTTON postback', received_postback);
   let payload = received_postback.payload;
   switch(payload) {        
       case "yes":
