@@ -981,18 +981,30 @@ const showReview = (sender_psid) => {
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "Makeup Product Review",
+            "title": "Face Product Review",
             "subtitle": "Makeup Review",
             "image_url":"https://previews.123rf.com/images/loonara/loonara1611/loonara161100208/68889185-professional-makeup-brushes-and-tools-make-up-products-kit-flatlay-on-white-background.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "Makeup Product Review",
+                  "title": "Review",
+                  "payload": "makeuptype",
+                },               
+              ],
+          },
+          {
+            "title": "Skincare Product",
+            "subtitle": "Makeup Review",
+            "image_url":"https://cdn.iconscout.com/icon/free/png-512/doctor-567-1118047.png",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Review",
                   "payload": "makeuptype",
                 },               
               ],
           }
-                ]
+        ]
       }
     }
       }
