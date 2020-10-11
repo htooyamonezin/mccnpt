@@ -983,7 +983,7 @@ const showReview = (sender_psid) => {
           "elements": [{
             "title": "Makeup Product Review",
             "subtitle": "Makeup Review",
-            "image_url":"https://image.freepik.com/free-vector/doctor-icon-avatar-white_136162-58.jpg",                       
+            "image_url":"https://www.freepik.com/free-vector/pink-hand-drawn-cosmetic-elements_900435.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
