@@ -512,7 +512,7 @@ function handleQuickReply(sender_psid, received_message) {
   
   switch(received_message) {   
         case "makeup review":
-          makeupType(sender_psid);
+          showReview(sender_psid);
           break;     
         case "on":
             showQuickReplyOn(sender_psid);
@@ -974,7 +974,7 @@ const makeupType = (sender_psid) => {
   });
 }
 
-const makeuptype = (sender_psid) => {
+const showReview = (sender_psid) => {
     let response = {
       "attachment": {
         "type": "template",
