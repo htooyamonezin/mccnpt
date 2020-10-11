@@ -995,7 +995,7 @@ const showReview = (sender_psid) => {
           {
             "title": "Skincare Product",
             "subtitle": "Makeup Review",
-            "image_url":"https://cdn.iconscout.com/icon/free/png-512/doctor-567-1118047.png",                       
+            "image_url":"https://www.foreo.com/mysa/wp-content/uploads/sites/2/2019/11/unique-skincare-diagram.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
