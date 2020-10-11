@@ -936,14 +936,14 @@ const makeuptype = (sender_psid) => {
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "Makeup Review",
-            "subtitle": "Product",
+            "title": "Makeup Product Review",
+            "subtitle": "Makeup Review",
             "image_url":"https://www.freepik.com/free-vector/pink-hand-drawn-cosmetic-elements_900435.htm",                       
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "Makeup Review",
-                  "payload": "Makeup Review",
+                  "title": "Makeup Product Review",
+                  "payload": "Makeup Product Review",
                 },               
               ],
           }
