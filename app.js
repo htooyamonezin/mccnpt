@@ -509,7 +509,7 @@ function handleQuickReply(sender_psid, received_message) {
     console.log('QUICK REPLY', received_message);
   
   switch(received_message) {   
-        case "makeuptype":
+        case "":
           makeupType(sender_psid);
           break;     
         case "on":
@@ -583,8 +583,6 @@ const handleMessage = (sender_psid, received_message) => {
   } else {
       
       let user_message = received_message.text;
-
-      console.log('USER MESSAGE', user_message);
 
       if(user_message.includes("Change Booking:")){
         let ref_num = user_message.slice(15);
@@ -696,7 +694,7 @@ Function to handle when user click button
 **********************************************/
 const handlePostback = (sender_psid, received_postback) => {
 
-    console.log('BUTTON postback', received_postback);
+    console.log('BUTTON', received_postback);
   let payload = received_postback.payload;
   switch(payload) {        
       case "yes":
@@ -955,7 +953,13 @@ const makeupType = (sender_psid) => {
               "content_type":"text",
               "title":"Makeup Review",
               "payload":"Makeup Review",              
-            },{
+            },
+            {
+              "content_type":"text",
+              "title":"Makeup Look",
+              "payload":"Makeup Look",              
+            },
+            {
               "content_type":"text",
               "title":"Self-Makeup Class",
               "payload":"Self-Makeup Class",             
@@ -982,7 +986,7 @@ const makeuptype = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Makeup Product Review",
-                  "payload": "Makeup Product Review",
+                  "payload": "makeuptype",
                 },               
               ],
           }
