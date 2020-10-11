@@ -504,12 +504,14 @@ app.get('/webhook', (req, res) => {
 /**********************************************
 Function to Handle when user send quick reply message
 ***********************************************/
-
 function handleQuickReply(sender_psid, received_message) {
+
     console.log('QUICK REPLY', received_message);
+
+    received_message = received_message.toLowerCase();
   
   switch(received_message) {   
-        case "":
+        case "makeup review":
           makeupType(sender_psid);
           break;     
         case "on":
