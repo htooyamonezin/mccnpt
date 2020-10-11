@@ -950,6 +950,7 @@ const makeuptype = (sender_psid) => {
                 ]
       }
     }
+      }
   callSend(sender_psid, response);
   
   }
