@@ -594,7 +594,9 @@ const handleMessage = (sender_psid, received_message) => {
         case "makeup":
           makeupType(sender_psid);
           break;
-
+        case "makeuptype":
+          makeupType(sender_psid);
+          break;
         case "hello":        
           helloGreeting(sender_psid);
           break;
@@ -926,6 +928,31 @@ const makeupType = (sender_psid) => {
     return callSend(sender_psid, response2);
   });
 }
+
+const makeuptype = (sender_psid) => {
+    let response = {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [{
+            "title": "Makeup Review",
+            "subtitle": "Product",
+            "image_url":"https://www.freepik.com/free-vector/pink-hand-drawn-cosmetic-elements_900435.htm",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Makeup Review",
+                  "payload": "Makeup Review",
+                },               
+              ],
+          }
+                ]
+      }
+    }
+  callSend(sender_psid, response);
+  
+  }
 
 /*********************************************
 end makeup
