@@ -1056,7 +1056,7 @@ const showReview = (sender_psid) => {
                   "payload": "makeuptype",
                 },               
           ],
-          
+          }
         ]
       }
     }
