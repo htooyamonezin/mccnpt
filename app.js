@@ -514,6 +514,9 @@ function handleQuickReply(sender_psid, received_message) {
         case "makeup review":
           showReview(sender_psid);
           break;     
+        case "makeup look":
+          showLook(sender_psid);
+          break;
         case "on":
             showQuickReplyOn(sender_psid);
           break;
@@ -1004,6 +1007,56 @@ const showReview = (sender_psid) => {
                 },               
               ],
           }
+        ]
+      }
+    }
+      }
+  callSend(sender_psid, response);
+  
+  }
+
+  const showLook = (sender_psid) => {
+    let response = {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [{
+            "title": "Natural Makeup Look",
+            "subtitle": "Makeup Review",
+            "image_url":"https://previews.123rf.com/images/loonara/loonara1611/loonara161100208/68889185-professional-makeup-brushes-and-tools-make-up-products-kit-flatlay-on-white-background.jpg",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "View Look",
+                  "payload": "makeuptype",
+                },               
+              ],
+          },
+          {
+            "title": "Skincare Product",
+            "subtitle": "Smokey Makeup Look",
+            "image_url":"https://www.foreo.com/mysa/wp-content/uploads/sites/2/2019/11/unique-skincare-diagram.jpg",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "View Look",
+                  "payload": "makeuptype",
+                },               
+              ],
+          },
+          {
+            "title": "Skincare Product",
+            "subtitle": "Shimmer Makeup Look",
+            "image_url":"https://www.foreo.com/mysa/wp-content/uploads/sites/2/2019/11/unique-skincare-diagram.jpg",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "View Look",
+                  "payload": "makeuptype",
+                },               
+          ],
+          
         ]
       }
     }
