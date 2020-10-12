@@ -1006,6 +1006,18 @@ const showReview = (sender_psid) => {
                   "payload": "makeuptype",
                 },               
               ],
+          },
+                    {
+            "title": "Skincare Product",
+            "subtitle": "Makeup Review",
+            "image_url":"https://www.foreo.com/mysa/wp-content/uploads/sites/2/2019/11/unique-skincare-diagram.jpg",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Review",
+                  "payload": "makeuptype",
+                },               
+              ],
           }
         ]
       }
