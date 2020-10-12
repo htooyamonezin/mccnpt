@@ -709,7 +709,7 @@ const handlePostback = (sender_psid, received_postback) => {
 
       if(payload.startsWith("Review:")){
         let taskId = payload.slice(7);
-        console.log('SELECTED Review Is: ', Review:name);
+        console.log('SELECTED Review Is: ', Review_name);
         showCosmetic(sender_psid);
       }else{
         switch(payload) {        
