@@ -961,11 +961,6 @@ const makeupType = (sender_psid) => {
             },
             {
               "content_type":"text",
-              "title":"Makeup Look",
-              "payload":"Makeup Look",              
-            },
-            {
-              "content_type":"text",
               "title":"Makeup Class",
               "payload":"Class",             
             }
@@ -1008,7 +1003,7 @@ const showReview = (sender_psid) => {
               ],
           },
                     {
-            "title": "Skincare Product",
+            "title": "Makeup Look",
             "subtitle": "Makeup Review",
             "image_url":"https://www.foreo.com/mysa/wp-content/uploads/sites/2/2019/11/unique-skincare-diagram.jpg",                       
             "buttons": [
