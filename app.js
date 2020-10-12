@@ -1005,7 +1005,7 @@ const showReview = (sender_psid) => {
                     {
             "title": "Makeup Look",
             "subtitle": "Makeup Review",
-            "image_url":"https://www.foreo.com/mysa/wp-content/uploads/sites/2/2019/11/unique-skincare-diagram.jpg",                       
+            "image_url":"https://image.shutterstock.com/image-vector/background-fashion-cosmetics-patch-badges-260nw-722600308.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
