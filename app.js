@@ -709,7 +709,7 @@ const handlePostback = (sender_psid, received_postback) => {
 
       if(payload.startsWith("Review:")){
         let taskId = payload.slice(7);
-        console.log('SELECTED Review Is: ', review_name);
+        console.log('SELECTED Review Is: ', Review:name);
         showCosmetic(sender_psid);
       }else{
         switch(payload) {        
@@ -966,7 +966,7 @@ makeup
 **********************************************/
 const makeupType = (sender_psid) => {
    let response1 = {"text": "မင်္ဂလာပါ။ Glamour By Moon Page က​နေကြိုဆိုပါတယ်။"};
-   let response2 = {"text": "​​​အောက်​ဖော်ပြပါ(၃)ခုများအနက် မိတ်ကပ် review အ​ကြောင်းကိုသိရှိလိုပါက Makeup Review ကိုနှိပ်​ပေးပါ။ မိတ်ကပ်ခြယ်သမှုပုံစံများကိုသိရှိလိုပါက Makeup Look ကိုနှိပ်​ပေးပါ။Makeup သင်တန်းအ​ကြောင်းသိရှိလိုပါက Makeup Class ကိုနှိပ်ပါ။",
+   let response2 = {"text": "​​​အောက်​ဖော်ပြပါများအနက် မိတ်ကပ် review အ​ကြောင်းများကိုသိရှိလိုပါက Makeup Review ကိုနှိပ်​ပေးပါ။Makeup သင်တန်းအ​ကြောင်းသိရှိလိုပါက Makeup Class ကိုနှိပ်ပါ။",
     "quick_replies":[
             {
               "content_type":"text",
@@ -1000,7 +1000,7 @@ const showReview = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Review",
-                  "payload": "review:Cosmetic",
+                  "payload": "Review:Cosmetic",
                 },               
               ],
           },
@@ -1012,7 +1012,7 @@ const showReview = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Review",
-                  "payload": "review:skincare",
+                  "payload": "Review:skincare",
                 },               
               ],
           },
@@ -1024,7 +1024,7 @@ const showReview = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Review",
-                  "payload": "review:Makeup Look",
+                  "payload": "Review:Makeup Look",
                 },               
               ],
           }
