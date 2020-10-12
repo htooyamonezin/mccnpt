@@ -509,14 +509,16 @@ function handleQuickReply(sender_psid, received_message) {
     console.log('QUICK REPLY', received_message);
 
     received_message = received_message.toLowerCase();
-  
+
+  if(payload.startsWith("visit:")){
+        let visit = payload.slice(6);
+        console.log('visit: ', visit);
+      }else{
+
   switch(received_message) {   
         case "makeup review":
           showReview(sender_psid);
           break;     
-        case "makeup look":
-          showLook(sender_psid);
-          break;
         case "on":
             showQuickReplyOn(sender_psid);
           break;
@@ -526,6 +528,8 @@ function handleQuickReply(sender_psid, received_message) {
         default:
             defaultReply(sender_psid);
   } 
+      }
+
  
 }
 
@@ -706,6 +710,7 @@ const handlePostback = (sender_psid, received_postback) => {
       if(payload.startsWith("Review:")){
         let taskId = payload.slice(7);
         console.log('SELECTED Review Is: ', Review_name);
+        showCosmetic(sender_psid);
       }else{
         switch(payload) {        
       case "yes":
@@ -717,7 +722,7 @@ const handlePostback = (sender_psid, received_postback) => {
       default:
           defaultReply(sender_psid);
          } 
-         
+
       }
   
 }
@@ -988,14 +993,14 @@ const showReview = (sender_psid) => {
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "Face Product Review",
+            "title": "Cosmetic Review",
             "subtitle": "Makeup Review",
             "image_url":"https://previews.123rf.com/images/loonara/loonara1611/loonara161100208/68889185-professional-makeup-brushes-and-tools-make-up-products-kit-flatlay-on-white-background.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
                   "title": "Review",
-                  "payload": "Review:makeuptype",
+                  "payload": "Review:Cosmetic",
                 },               
               ],
           },
@@ -1007,7 +1012,7 @@ const showReview = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Review",
-                  "payload": "Review:makeuptype",
+                  "payload": "Review:skincare",
                 },               
               ],
           },
@@ -1019,7 +1024,7 @@ const showReview = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Review",
-                  "payload": "Review:makeuptype",
+                  "payload": "Review:Makeup Look",
                 },               
               ],
           }
@@ -1031,45 +1036,45 @@ const showReview = (sender_psid) => {
   
   }
 
-  const showLook = (sender_psid) => {
+  const showCosmetic = (sender_psid) => {
     let response = {
       "attachment": {
         "type": "template",
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "Natural Makeup Look",
-            "subtitle": "Makeup Review",
+            "title": "Bella Product",
+            "subtitle": "Cosmetic Review",
             "image_url":"https://www.sydnestyle.com/wp-content/uploads/2020/05/Sydne-Style-shares-the-best-beauty-products-to-use-for-a-natural-makeup-look-for-zoom-meetings.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "View Look",
-                  "payload": "makeuptype",
+                  "title": "View Product",
+                  "payload": "visit:Product",
                 },               
               ],
           },
           {
-            "title": "Smokey Makeup Look",
-            "subtitle": "Makeup Review",
+            "title": "Heart Heart Product",
+            "subtitle": "Cosmetic Review",
             "image_url":"https://i.ytimg.com/vi/q0IK2jzRii8/sddefault.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "View Look",
-                  "payload": "makeuptype",
+                  "title": "View Product",
+                  "payload": "visit:Product",
                 },               
               ],
           },
           {
-            "title": "Shimmer Makeup Look",
-            "subtitle": "Makeup Review",
+            "title": "L'oreal Product",
+            "subtitle": "Cosmetic Review",
             "image_url":"https://www.lorealparisusa.com/~/media/images/lop/home/beauty-library/articles-2/shimmer-eyeshadow/loreal-paris-bmag-article-how-to-pull-off-a-shimmery-eyeshadow-look-d.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "View Look",
-                  "payload": "makeuptype",
+                  "title": "View Product",
+                  "payload": "visit:Product",
                 },               
           ],
           }
