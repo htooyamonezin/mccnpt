@@ -949,7 +949,7 @@ makeup
 **********************************************/
 const makeupType = (sender_psid) => {
    let response1 = {"text": "မဂ်လာပါ။ Glamour By Moon Page က​နေကြိုဆိုပါတယ်။"};
-   let response2 = {"text": "​​​အောက်​ဖော်ပြရာ ၃ခု များအနက် မိတ်ကပ် review အ​ကြောင်းကိုသိရှိလိုပါက Makeup Review ကိုနှိပ်​ပေးပါ။ မိတ်ကပ်ခြယ်သမှုပုံစံများကိုသိရှိလိုပါက Makeup Look ကိုနှိပ်​ပေးပါ။Makeup သင်တန်းအ​ကြောင်းသိရှိလိုပါက Class ကိုနှိပ်ပါ။",
+   let response2 = {"text": "​​​အောက်​ဖော်ပြပါ(၃)ခုများအနက် မိတ်ကပ် review အ​ကြောင်းကိုသိရှိလိုပါက Makeup Review ကိုနှိပ်​ပေးပါ။ မိတ်ကပ်ခြယ်သမှုပုံစံများကိုသိရှိလိုပါက Makeup Look ကိုနှိပ်​ပေးပါ။Makeup သင်တန်းအ​ကြောင်းသိရှိလိုပါက Makeup Class ကိုနှိပ်ပါ။",
     "quick_replies":[
             {
               "content_type":"text",
