@@ -699,8 +699,9 @@ Function to handle when user click button
 **********************************************/
 const handlePostback = (sender_psid, received_postback) => {
 
-    console.log('BUTTON', received_postback);
   let payload = received_postback.payload;
+  
+      console.log('BUTTON PAYLOAD', payload);
   switch(payload) {        
       case "yes":
           showButtonReplyYes(sender_psid);
@@ -986,7 +987,7 @@ const showReview = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Review",
-                  "payload": "makeuptype",
+                  "payload": "Review:makeuptype",
                 },               
               ],
           },
@@ -998,7 +999,7 @@ const showReview = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Review",
-                  "payload": "makeuptype",
+                  "payload": "Review:makeuptype",
                 },               
               ],
           },
@@ -1010,7 +1011,7 @@ const showReview = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Review",
-                  "payload": "makeuptype",
+                  "payload": "Review:makeuptype",
                 },               
               ],
           }
