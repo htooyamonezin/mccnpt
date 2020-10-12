@@ -1085,13 +1085,13 @@ function webviewTest(sender_psid){
 }
 
 const greeting =(sender_psid) => {
-  let response = {"text": "မဂ်လာပါ။ Glamour By Moon Page က​နေကြိုဆိုပါတယ်။"};
+  let response = {"text": "မင်္ဂလာပါ။ Glamour By Moon Page က​နေကြိုဆိုပါတယ်။"};
   callSend(sender_psid, response);
 }
 
 
 const helloGreeting =(sender_psid) => {
-  let response = {"text": "မဂ်လာပါ။ Glamour By Moon Page က​နေကြိုဆိုပါတယ် ။ မိတ်ကပ် review များကိုသိရှိလိုပါက ' makeup ' လိုရိုက်ထည့်​ပေးပါ။"};
+  let response = {"text": "မင်္ဂလာပါ။ Glamour By Moon Page က​နေကြိုဆိုပါတယ် ။ မိတ်ကပ် review များကိုသိရှိလိုပါက ' makeup ' လိုရိုက်ထည့်​ပေးပါ။"};
   callSend(sender_psid, response);
 }
 
