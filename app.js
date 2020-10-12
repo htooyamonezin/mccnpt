@@ -1091,7 +1091,7 @@ const greeting =(sender_psid) => {
 
 
 const helloGreeting =(sender_psid) => {
-  let response = {"text": "Hello, Welcome to Glamour by Moon Page. If you want to know about the makeup, pls write 'makeup'"};
+  let response = {"text": "မဂ်လာပါ။ Glamour By Moon Page က​နေကြိုဆိုပါတယ် ။ မိတ်ကပ် review များကိုသိရှိလိုပါက ' makeup ' လိုရိုက်ထည့်​ပေးပါ။"};
   callSend(sender_psid, response);
 }
 
