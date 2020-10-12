@@ -700,9 +700,14 @@ Function to handle when user click button
 const handlePostback = (sender_psid, received_postback) => {
 
   let payload = received_postback.payload;
-  
+
       console.log('BUTTON PAYLOAD', payload);
-  switch(payload) {        
+
+      if(payload.startsWith("Review:")){
+        let taskId = payload.slice(7);
+        console.log('SELECTED Review Is: ', Review_name);
+      }else{
+        switch(payload) {        
       case "yes":
           showButtonReplyYes(sender_psid);
         break;
@@ -711,7 +716,10 @@ const handlePostback = (sender_psid, received_postback) => {
         break;                      
       default:
           defaultReply(sender_psid);
-  } 
+         } 
+         
+      }
+  
 }
 
 /*********************************************
