@@ -1024,7 +1024,7 @@ const showReview = (sender_psid) => {
           "elements": [{
             "title": "Natural Makeup Look",
             "subtitle": "Makeup Review",
-            "image_url":"https://previews.123rf.com/images/loonara/loonara1611/loonara161100208/68889185-professional-makeup-brushes-and-tools-make-up-products-kit-flatlay-on-white-background.jpg",                       
+            "image_url":"https://www.sydnestyle.com/wp-content/uploads/2020/05/Sydne-Style-shares-the-best-beauty-products-to-use-for-a-natural-makeup-look-for-zoom-meetings.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
@@ -1034,9 +1034,9 @@ const showReview = (sender_psid) => {
               ],
           },
           {
-            "title": "Skincare Product",
-            "subtitle": "Smokey Makeup Look",
-            "image_url":"https://www.foreo.com/mysa/wp-content/uploads/sites/2/2019/11/unique-skincare-diagram.jpg",                       
+            "title": "Smokey Makeup Look",
+            "subtitle": "Makeup Review",
+            "image_url":"https://i.ytimg.com/vi/q0IK2jzRii8/sddefault.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
@@ -1046,9 +1046,9 @@ const showReview = (sender_psid) => {
               ],
           },
           {
-            "title": "Skincare Product",
-            "subtitle": "Shimmer Makeup Look",
-            "image_url":"https://www.foreo.com/mysa/wp-content/uploads/sites/2/2019/11/unique-skincare-diagram.jpg",                       
+            "title": "Shimmer Makeup Look",
+            "subtitle": "Makeup Review",
+            "image_url":"https://www.lorealparisusa.com/~/media/images/lop/home/beauty-library/articles-2/shimmer-eyeshadow/loreal-paris-bmag-article-how-to-pull-off-a-shimmery-eyeshadow-look-d.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
@@ -1061,6 +1061,7 @@ const showReview = (sender_psid) => {
       }
     }
       }
+
   callSend(sender_psid, response);
   
   }
