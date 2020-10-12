@@ -1091,7 +1091,7 @@ const greeting =(sender_psid) => {
 
 
 const helloGreeting =(sender_psid) => {
-  let response = {"text": "Hello, Welcome to Glamour by Moon Page. If you want to know about the review type'makeup'"};
+  let response = {"text": "Hello, Welcome to Glamour by Moon Page. If you want to know about the makeup, pls write 'makeup'"};
   callSend(sender_psid, response);
 }
 
