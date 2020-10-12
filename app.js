@@ -948,8 +948,8 @@ END TOUR
 makeup
 **********************************************/
 const makeupType = (sender_psid) => {
-   let response1 = {"text": "Welcome to Glamour By Moon Page"};
-   let response2 = {"text": "What about do you want to know?",
+   let response1 = {"text": "မဂ်လာပါ။ Glamour By Moon Page က​နေကြိုဆိုပါတယ်။"};
+   let response2 = {"text": "​​​အောက်​ဖော်ပြရာ ၃ခု များအနက် မိတ်ကပ် review အ​ကြောင်းကိုသိရှိလိုပါက Makeup Review ကိုနှိပ်​ပေးပါ။ မိတ်ကပ်ခြယ်သမှုပုံစံများကိုသိရှိလိုပါက Makeup Look ကိုနှိပ်​ပေးပါ။Makeup သင်တန်းအ​ကြောင်းသိရှိလိုပါက Class ကိုနှိပ်ပါ။",
     "quick_replies":[
             {
               "content_type":"text",
@@ -963,8 +963,8 @@ const makeupType = (sender_psid) => {
             },
             {
               "content_type":"text",
-              "title":"Self-Makeup Class",
-              "payload":"Self-Makeup Class",             
+              "title":"Makeup Class",
+              "payload":"Class",             
             }
     ]
   };
@@ -1085,7 +1085,7 @@ function webviewTest(sender_psid){
 }
 
 const greeting =(sender_psid) => {
-  let response = {"text": "Minalarbar. How may I help you?"};
+  let response = {"text": "မဂ်လာပါ။ Glamour By Moon Page က​နေကြိုဆိုပါတယ်။"};
   callSend(sender_psid, response);
 }
 
