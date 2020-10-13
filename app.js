@@ -510,9 +510,9 @@ function handleQuickReply(sender_psid, received_message) {
 
     received_message = received_message.toLowerCase();
 
-  if(received_message.startsWith("visit:")){
-        let visit = received_message.slice(6);
-        console.log('visit: ', visit);
+  if(received_message.startsWith("show:")){
+        let show = received_message.slice(6);
+        console.log('show: ', show);
       }else{
 
   switch(received_message) {   
@@ -816,7 +816,7 @@ const showReview = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "View Product",
-                  "payload": "visit:Product",
+                  "payload": "show:Product",
                 },               
               ],
           },
@@ -828,7 +828,7 @@ const showReview = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "View Product",
-                  "payload": "visit:Product",
+                  "payload": "show:Product",
                 },               
               ],
           },
@@ -840,7 +840,7 @@ const showReview = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "View Product",
-                  "payload": "visit:Product",
+                  "payload": "show:Product",
                 },               
           ],
           }
