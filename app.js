@@ -857,8 +857,6 @@ const showReview = (sender_psid) => {
 end makeup
 **********************************************/
 
-
-
 /*********************************************
 GALLERY SAMPLE
 **********************************************/
@@ -888,17 +886,9 @@ const showImages = (sender_psid) => {
     }
   callSendAPI(sender_psid, response);
 }
-
-
 /*********************************************
 END GALLERY SAMPLE
 **********************************************/
-
-
-
-
-
-
 function webviewTest(sender_psid){
   let response;
   response = {
@@ -1116,7 +1106,6 @@ async function callSend(sender_psid, response){
 /*************************************
 FUNCTION TO SET UP GET STARTED BUTTON
 **************************************/
-
 const setupGetStartedButton = (res) => {
   let messageData = {"get_started":{"payload":"get_started"}};
 
@@ -1135,7 +1124,6 @@ const setupGetStartedButton = (res) => {
       }
   });
 } 
-
 /**********************************
 FUNCTION TO SET UP PERSISTENT MENU
 ***********************************/
@@ -1211,7 +1199,6 @@ const removePersistentMenu = (res) => {
       }
   });
 } 
-
 
 /***********************************
 FUNCTION TO ADD WHITELIST DOMAIN
