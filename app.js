@@ -99,6 +99,12 @@ app.post('/webhook', (req, res) => {
       let webhook_event = entry.messaging[0];
       let sender_psid = webhook_event.sender.id; 
 
+      user_id = sender_psid; 
+
+      if(!userInputs[user_id]){
+        userInputs[user_id] = {};
+      }    
+
 
       if (webhook_event.message) {
         if(webhook_event.message.quick_reply){
@@ -120,7 +126,6 @@ app.post('/webhook', (req, res) => {
   }
 
 });
-
 
 app.use('/uploads', express.static('uploads'));
 
@@ -227,217 +232,6 @@ app.post('/imagepick',function(req,res){
 Gallery Page
 **********************************************/
 
-/*********************************************
-Tour
-**********************************************/
-
-app.get('/privatetour/:sender_id/',function(req,res){
-    const sender_id = req.params.sender_id;
-    res.render('privatetour.ejs',{title:"Create Private Tour", sender_id:sender_id});
-});
-
-app.post('/privatetour',function(req,res){
-      
-      
-      let destination= req.body.destination;
-      let activities = req.body.activities;
-      let guests = req.body.guests;
-      let travel_mode = req.body.travel_mode;
-      let travel_option = req.body.travel_option;
-      let hotel = req.body.hotel;
-      let restaurent= req.body.restaurent;
-      let name  = req.body.name;
-      let mobile = req.body.mobile;
-      let sender = req.body.sender;  
-
-     let booking_number = generateRandom(5);    
-
-      db.collection('Pagodas Booking').add({
-           
-            destination:destination,
-            activities:activities,
-            guests:guests,
-            travel_mode:travel_mode,
-            travel_option:travel_option,
-            hotel:hotel,
-            restaurent:restaurent,            
-            name:name,
-            mobile:mobile,
-            booking_number:booking_number,
-          }).then(success => {             
-             showBookingNumber(sender, booking_number);   
-          }).catch(error => {
-            console.log(error);
-      });        
-});
-
-
-app.get('/updateprivatetour/:booking_number/:sender_id/',function(req,res){
-    const sender_id = req.params.sender_id;
-    const booking_number = req.params.booking_number;
-
-
-
-    db.collection("Pagodas Booking").where("booking_number", "==", booking_number)
-    .get()
-    .then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-
-            let data = {
-              doc_id:doc.id,
-              destination:doc.data().destination,
-              activities:doc.data().activities,
-              guests:doc.data().guests,
-              travel_mode:doc.data().travel_mode,
-              travel_option:doc.data().travel_option,
-              hotel:doc.data().hotel,
-              restaurent:doc.data().restaurent,            
-              name:doc.data().name,
-              mobile:doc.data().mobile,
-              booking_number:doc.data().booking_number,
-            }   
-
-            console.log("BOOKING DATA", data);     
-
-             res.render('updateprivatetour.ejs',{data:data, sender_id:sender_id});
-            
-
-        });
-    })
-    .catch(function(error) {
-        console.log("Error getting documents: ", error);
-    });    
-});
-
-app.post('/updateprivatetour',function(req,res){
-      
-      
-      let destination= req.body.destination;
-      let activities = req.body.activities;
-      let guests = req.body.guests;
-      let travel_mode = req.body.travel_mode;
-      let travel_option = req.body.travel_option;
-      let hotel = req.body.hotel;
-      let restaurent= req.body.restaurent;
-      let name  = req.body.name;
-      let mobile = req.body.mobile;
-      let sender = req.body.sender;
-      let booking_number = req.body.booking_number; 
-      let doc_id = req.body.doc_id;  
-
-      db.collection('Pagodas Booking').doc(doc_id).update({           
-            destination:destination,
-            activities:activities,
-            guests:guests,
-            travel_mode:travel_mode,
-            travel_option:travel_option,
-            hotel:hotel,
-            restaurent:restaurent,            
-            name:name,
-            mobile:mobile,
-            booking_number:booking_number,
-          }).then(success => {             
-             showBookingNumber(sender, booking_number);   
-          }).catch(error => {
-            console.log(error);
-      });        
-});
-
-
-
-
-
-
-
-
-app.get('/addpackage/:sender_id/',function(req,res){
-    const sender_id = req.params.sender_id;
-    res.render('addpackage.ejs',{title:"Hi!! from WebView", sender_id:sender_id});
-});
-
-
-app.post('/addpackage',function(req,res){      
-      let image  = req.body.image; 
-      let title = req.body.title;
-      let description = req.body.description;   
-      let sku = req.body.sku;   
-      let sender = req.body.sender;   
-
-      db.collection('package').add({
-            image: image,
-            title: title,
-            description: description,
-            sku:sku
-            
-          }).then(success => {             
-             notifySave(sender);    
-          }).catch(error => {
-            console.log(error);
-      });        
-});
-
-
-app.get('/booktour/:sku/:sender_id',function(req,res){
-    const sku = req.params.sku;
-    const sender_id = req.params.sender_id;
-
-
-    
-
-  
-    const packages = {
-      yangon:{
-        title:"Yangon 2D1N",
-        hotels:['Melia', 'Lotte', 'Sedona'],
-        restaurents:['Fuji House', 'Koh Fu', 'Seeds']
-      },
-      mandalay:{
-        title:"Mandalay 2D1N",
-        hotels:['Yandanarbon', 'Apex', 'Golden Leaff'],
-        restaurents:['Goldious', 'Mingalabar Myanmar', 'Unique']
-      }
-
-    }
-
-
-
-
-
-    res.render('booktour.ejs',{title:"Book Tour Package", sender_id:sender_id, package:packages[sku]});
-});
-
-
-app.post('/booktour',function(req,res){
-      let name  = req.body.name;
-      let mobile = req.body.mobile;
-      let tour_package = req.body.tour_package;
-      let restaurent = req.body.restaurent;
-      let hotel = req.body.hotel;
-      let sender = req.body.sender;
-
-      let booking_ref = generateRandom(5);   
-
-
-      db.collection('Bookings').add({           
-            name:name,
-            mobile:mobile,
-            restaurent:restaurent,
-            hotel:hotel,
-            ref:booking_ref,
-            package:tour_package
-          }).then(success => {             
-             showBookingNumber(sender, booking_ref);    
-          }).catch(error => {
-            console.log(error);
-      });        
-});
-
-
-/*********************************************
-END Tour
-**********************************************/
-
-
 //webview test
 app.get('/webview/:sender_id',function(req,res){
     const sender_id = req.params.sender_id;
@@ -448,21 +242,30 @@ app.post('/webview',upload.single('file'),function(req,res){
        
       let name  = req.body.name;
       let email = req.body.email;
-      let img_url = APP_URL + "/" + req.file.path;
-      let sender = req.body.sender;    
+      let img_url = "";
+      let sender = req.body.sender;  
 
-      
-      
-      db.collection('webview').add({
-            name: name,
-            email: email,
-            image: img_url
-          }).then(success => {   
-             console.log("DATA SAVED")
-             thankyouReply(sender, name, img_url);    
-          }).catch(error => {
-            console.log(error);
-      });        
+      console.log("REQ FILE:",req.file);
+
+
+
+      let file = req.file;
+      if (file) {
+        uploadImageToStorage(file).then((img_url) => {
+            db.collection('webview').add({
+              name: name,
+              email: email,
+              image: img_url
+              }).then(success => {   
+                console.log("DATA SAVED")
+                thankyouReply(sender, name, img_url);    
+              }).catch(error => {
+                console.log(error);
+              }); 
+        }).catch((error) => {
+          console.error(error);
+        });
+      }        
 });
 
 //Set up Get Started Button. To run one time
