@@ -6,6 +6,8 @@ const APP_URL = "https://htoo.herokuapp.com";
 
 // Imports dependencies and set up http server
 const 
+{ uuid } = require('uuidv4'),
+  {format} = require('util'),
   request = require('request'),
   express = require('express'),
   body_parser = require('body-parser'),
@@ -14,6 +16,8 @@ const
   fs = require('fs'),
   multer  = require('multer'),  
   app = express(); 
+
+const uuidv4 = uuid();
 
 
 app.use(body_parser.json());
@@ -43,7 +47,13 @@ var storage = multer.diskStorage({
   }
 })
 
-const upload = multer({ storage: storage });
+const upload = multer({ 
+  storage: multer.memoryStorage(),
+  limits :{
+    fileSize: 50 * 1024 * 1024  //no larger than 5mb
+  }
+
+});
 
 // parse application/x-www-form-urlencoded
 
@@ -60,16 +70,15 @@ var firebaseConfig = {
     "client_email": process.env.FIREBASE_CLIENT_EMAIL,
     "project_id": process.env.FIREBASE_PROJECT_ID,    
     }),
-    databaseURL: process.env.FIREBASE_DB_URL,    
+    databaseURL: process.env.FIREBASE_DB_URL,   
+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET
   };
-
 
 
 firebase.initializeApp(firebaseConfig);
 
 let db = firebase.firestore(); 
-
-
+let bucket = firebase.storage().bucket();
 
 
 // Sets server port and logs message on success
