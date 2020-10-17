@@ -99,13 +99,6 @@ app.post('/webhook', (req, res) => {
       let webhook_event = entry.messaging[0];
       let sender_psid = webhook_event.sender.id; 
 
-      user_id = sender_psid; 
-
-      if(!userInputs[user_id]){
-        userInputs[user_id] = {};
-      }    
-
-
       if (webhook_event.message) {
         if(webhook_event.message.quick_reply){
             handleQuickReply(sender_psid, webhook_event.message.quick_reply.payload);
