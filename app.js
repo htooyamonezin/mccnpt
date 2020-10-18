@@ -519,6 +519,7 @@ const handlePostback = (sender_psid, received_postback) => {
         let taskId = payload.slice(7);
         console.log('SELECTED Review Is: Review_name');
         showCosmetic(sender_psid);
+        showSkincare(sender_psid);
       }else{
         switch(payload) {        
       case "yes":
