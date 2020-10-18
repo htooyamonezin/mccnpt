@@ -603,7 +603,7 @@ const showReview = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Skincare Review",
-                  "payload": "Review:skincare",
+                  "payload": "skincare",
                 },               
               ],
           },
