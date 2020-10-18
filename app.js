@@ -614,21 +614,9 @@ const showReview = (sender_psid) => {
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "Bella Product",
+            "title": "Bella and Hearty Heart Product",
             "subtitle": "Cosmetic Review",
             "image_url":"https://www.sydnestyle.com/wp-content/uploads/2020/05/Sydne-Style-shares-the-best-beauty-products-to-use-for-a-natural-makeup-look-for-zoom-meetings.jpg",                       
-            "buttons": [
-                {
-                  "type": "postback",
-                  "title": "View Product",
-                  "payload": "show:Product",
-                },               
-              ],
-          },
-          {
-            "title": "Heart Heart Product",
-            "subtitle": "Cosmetic Review",
-            "image_url":"https://i.ytimg.com/vi/q0IK2jzRii8/sddefault.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
