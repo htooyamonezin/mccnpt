@@ -532,24 +532,6 @@ const handlePostback = (sender_psid, received_postback) => {
          } 
 
       }
-            if(payload.startsWith("Review:")){
-        let taskId = payload.slice(7);
-        console.log('SELECTED Review Is: Review_name');
-        showSkincare(sender_psid);
-      }else{
-        switch(payload) {        
-      case "yes":
-          showButtonReplyYes(sender_psid);
-        break;
-      case "no":
-          showButtonReplyNo(sender_psid);
-        break;                      
-      default:
-          defaultReply(sender_psid);
-         } 
-
-      }
-  
 }
 
 /*********************************************
