@@ -323,7 +323,10 @@ function handleQuickReply(sender_psid, received_message) {
   switch(received_message) {   
         case "makeup review":
           showReview(sender_psid);
-          break;     
+          break;
+          case "skincare":
+          showSkincare(sender_psid);
+          break;      
         case "on":
             showQuickReplyOn(sender_psid);
           break;
