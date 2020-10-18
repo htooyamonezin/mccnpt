@@ -516,6 +516,7 @@ const handlePostback = (sender_psid, received_postback) => {
         let taskId = payload.slice(7);
         console.log('SELECTED Review Is: Review_name');
         showCosmetic(sender_psid);
+        showSkincare(sender_psid);
       }else{
         switch(payload) {        
       case "yes":
@@ -608,6 +609,57 @@ const showReview = (sender_psid) => {
   }
 
   const showCosmetic = (sender_psid) => {
+    let response = {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [{
+            "title": "Bella and Hearty Heart Product",
+            "subtitle": "Cosmetic Review",
+            "image_url":"https://www.sydnestyle.com/wp-content/uploads/2020/05/Sydne-Style-shares-the-best-beauty-products-to-use-for-a-natural-makeup-look-for-zoom-meetings.jpg",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "View Product",
+                  "payload": "show:Product",
+                },               
+              ],
+          },
+          {
+            "title": "L'oreal Product",
+            "subtitle": "Cosmetic Review",
+            "image_url":"https://www.lorealparisusa.com/~/media/images/lop/home/beauty-library/articles-2/shimmer-eyeshadow/loreal-paris-bmag-article-how-to-pull-off-a-shimmery-eyeshadow-look-d.jpg",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "View Product",
+                  "payload": "show:Product",
+                },               
+             ],
+          },
+            {
+            "title": "Maybelline Product",
+            "subtitle": "Cosmetic Review",
+            "image_url":"https://www.lorealparisusa.com/~/media/images/lop/home/beauty-library/articles-2/shimmer-eyeshadow/loreal-paris-bmag-article-how-to-pull-off-a-shimmery-eyeshadow-look-d.jpg",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "View Product",
+                  "payload": "show:Product",
+                },               
+          ],
+          }
+        ]
+      }
+    }
+      }
+
+  callSend(sender_psid, response);
+  
+  }
+
+    const showSkincare = (sender_psid) => {
     let response = {
       "attachment": {
         "type": "template",
