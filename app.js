@@ -647,6 +647,18 @@ const showReview = (sender_psid) => {
                   "title": "View Product",
                   "payload": "show:Product",
                 },               
+             ],
+          },
+            {
+            "title": "Maybelline Product",
+            "subtitle": "Cosmetic Review",
+            "image_url":"https://www.lorealparisusa.com/~/media/images/lop/home/beauty-library/articles-2/shimmer-eyeshadow/loreal-paris-bmag-article-how-to-pull-off-a-shimmery-eyeshadow-look-d.jpg",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "View Product",
+                  "payload": "show:Product",
+                },               
           ],
           }
         ]
