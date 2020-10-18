@@ -514,7 +514,7 @@ const handlePostback = (sender_psid, received_postback) => {
 
       if(payload.startsWith("Review:")){
         let taskId = payload.slice(7);
-        console.log('SELECTED Review Is: ', Review_name);
+        console.log('SELECTED Review Is: ', Cosmetic);
         showCosmetic(sender_psid);
       }else{
         switch(payload) {        
@@ -570,7 +570,7 @@ const showReview = (sender_psid) => {
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "Review",
+                  "title": "Cosmetic Review",
                   "payload": "Review:Cosmetic",
                 },               
               ],
@@ -582,7 +582,7 @@ const showReview = (sender_psid) => {
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "Review",
+                  "title": "Skincare Review",
                   "payload": "Review:skincare",
                 },               
               ],
@@ -594,7 +594,7 @@ const showReview = (sender_psid) => {
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "Review",
+                  "title": "Makeup Look",
                   "payload": "Review:Makeup Look",
                 },               
               ],
