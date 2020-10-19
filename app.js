@@ -566,7 +566,7 @@ const showClass = (sender_psid) => {
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "Essential(Self-Makeup) Time 9 am - 5pm only one day",
+            "title": "Essential(Self-Makeup)",
             "subtitle": "Makeup Class",
             "image_url":"https://previews.123rf.com/images/loonara/loonara1611/loonara161100208/68889185-professional-makeup-brushes-and-tools-make-up-products-kit-flatlay-on-white-background.jpg",                       
             "buttons": [
@@ -604,15 +604,15 @@ const showClass = (sender_psid) => {
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "Weekend",
-            "subtitle": "Cosmetic Review",
+            "title": "Weekend သင်တန်းကတော့ အပတ်စဥ်စနေနေ့တိုင်းရှိမာဖြစ်ပါတယ်။အချိန် - 9 : 00 am - 5 : 00 pm ဖြစ်ပါသည်။Makeup အခြေခံမရှိလည်းတတ်ရောက်နိုင်မာဖြစ်ပြီးစာတွေ့လက်တွေ့သင်ကြားပေးမာမလို့မတက်မှာစိုးစိမ်စရာမလိုပါ။သင်တန်းကြေး ၁သောင်းဖြစ်ပြီး သင်တန်းလာရောက်မှသာပေးရမာဖြစ်ပါတယ်။အသေးစိတ်သိရှိလိုပါက Ph - 09771260733 သို့ဆက်သွယ်မေးမြန်းနိုင်ပါတယ်ရှင်။",
+            "subtitle": "Essential(Self-Makeup)",
             "image_url":"https://www.sydnestyle.com/wp-content/uploads/2020/05/Sydne-Style-shares-the-best-beauty-products-to-use-for-a-natural-makeup-look-for-zoom-meetings.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "View Product",
+                  "title": "သင်တန်းစုံစမ်းမယ်။",
                   "payload": "show:Product",
-                },               
+                },              
               ],
           },
           {
@@ -622,7 +622,7 @@ const showClass = (sender_psid) => {
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "View Product",
+                  "title": "သင်တန်းစုံစမ်းမယ်။",
                   "payload": "show:Product",
                 },               
              ],
