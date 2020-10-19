@@ -512,7 +512,10 @@ const handlePostback = (sender_psid, received_postback) => {
         console.log('SELECTED class Is: class_name');
         showTime(sender_psid);
       }else{
-        switch(payload) {        
+        switch(payload) { 
+      case "advance":
+          showAdvance(sender_psid);
+        break;
       case "yes":
           showButtonReplyYes(sender_psid);
         break;
@@ -614,7 +617,7 @@ const showTime =(sender_psid) => {
   callSend(sender_psid, response);
 }
 
-const showTime =(sender_psid) => {
+const showAdvance =(sender_psid) => {
 
   let response = {
       "attachment": {
@@ -627,7 +630,7 @@ const showTime =(sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Sat&Sun 9am - 5pm",
-                  "payload": "show:yes",
+                  "payload": "yes",
                 },
               ],
           }]
