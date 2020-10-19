@@ -591,7 +591,6 @@ const showClass = (sender_psid) => {
 
 const showTime = (sender_psid) => {
     let response = {
-      "text": "မင်္ဂလာပါ။ Glamour By Moon Page က​နေကြိုဆိုပါတယ်။"
       "attachment": {
         "type": "template",
         "payload": {
