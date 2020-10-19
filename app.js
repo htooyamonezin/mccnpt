@@ -594,7 +594,7 @@ const showClass = (sender_psid) => {
 
 const showTime =(sender_psid) => {
 
-  let response = {
+  let response1 = {
       "attachment": {
         "type": "template",
         "payload": {
@@ -612,35 +612,31 @@ const showTime =(sender_psid) => {
         }
       }
     }
-
-  
-  callSend(sender_psid, response);
-}
-
-const showAdvance =(sender_psid) => {
-
-  let response = {
+  let response2 = {
       "attachment": {
         "type": "template",
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "ဒီတစ်ပတ်စနေနဲ့တနဂ်နွေ Advanced Makeup Classရှိပါသည်။",    
+            "title": "ဒီတစ်ပတ်စနေနေ့ Advanced Classရှိပါသည်။",    
             "buttons": [
                 {
                   "type": "postback",
                   "title": "Sat&Sun 9am - 5pm",
-                  "payload": "yes",
+                  "payload": "show:yes",
                 },
               ],
           }]
         }
       }
     }
-
   
-  callSend(sender_psid, response);
+
+  callSend(sender_psid, response1).then(()=>{
+    return callSend(sender_psid, response2);
+  });
 }
+
 /*********************************************
 end makeup
 **********************************************/
