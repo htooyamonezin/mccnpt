@@ -597,14 +597,20 @@ const showTime =(sender_psid) => {
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "Essential(Self-Makeup)သင်တန်းကတော့ ဒီတစ်ပတ်စနေနေ့မှာရှိသည်။",     
+            "title": "Weekend သင်တန်းကတော့ အပတ်စဥ်စနေနေ့တိုင်းရှိမာဖြစ်ပါတယ်။",     
             "buttons": [
                 {
                   "type": "postback",
                   "title": "Time 9am - 5pm",
                   "payload": "show:yes",
                 },
-          }]
+                {
+                  "type": "Advanced သင်တန်းကတော့ အပတ်စဥ်စနေနဲ့တနဂ်နွေနေ့တိုင်းရှိမာဖြစ်ပါသည်။ ",
+                  "title": "No!",
+                  "payload": "show:no",
+                }
+              ],
+          }];
         }
       }
     }
