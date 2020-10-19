@@ -317,12 +317,12 @@ function handleQuickReply(sender_psid, received_message) {
 
   if(received_message.startsWith("show:")){
         let show = received_message.slice(6);
-        console.log('show: ', show);
+        console.log('show: show_name');
       }else{
 
   switch(received_message) {   
         case "class":
-          showClass(sender_psid);
+          showTime(sender_psid);
           break;   
         case "on":
             showQuickReplyOn(sender_psid);
