@@ -597,11 +597,36 @@ const showTime =(sender_psid) => {
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "Weekend သင်တန်းကတော့ အပတ်စဥ်စနေနေ့တိုင်းရှိမာဖြစ်ပါတယ်။အချိန် - 9 : 00 am - 5 : 00 pm ဖြစ်ပါသည်။",    
+            "title": "ဒီတစ်ပတ်စနေနေ့ Weekend သင်တန်းရှိပါသည်။",    
             "buttons": [
                 {
                   "type": "postback",
                   "title": "Sat 9am - 5pm",
+                  "payload": "show:yes",
+                },
+              ],
+          }]
+        }
+      }
+    }
+
+  
+  callSend(sender_psid, response);
+}
+
+const showTime =(sender_psid) => {
+
+  let response = {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [{
+            "title": "ဒီတစ်ပတ်စနေနဲ့တနဂ်နွေ Advanced Makeup Classရှိပါသည်။",    
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Sat&Sun 9am - 5pm",
                   "payload": "show:yes",
                 },
               ],
