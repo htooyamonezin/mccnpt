@@ -315,8 +315,6 @@ function handleQuickReply(sender_psid, received_message) {
 
     received_message = received_message.toLowerCase();
 
-
-
   switch(received_message) {   
         case "class":
           showClass(sender_psid);
@@ -592,33 +590,43 @@ const showClass = (sender_psid) => {
   }
 
 const showTime = (sender_psid) => {
-
-  let response1 = {
-    "text": "Weekend သင်တန်းကတော့ အပတ်စဥ်စနေနေ့တိုင်းရှိမာဖြစ်ပါတယ်။အချိန် - 9 : 00 am - 5 : 00 pm ဖြစ်ပါသည်။Makeup အခြေခံမရှိလည်းတတ်ရောက်နိုင်မာဖြစ်ပြီးစာတွေ့လက်တွေ့သင်ကြားပေးမာမလို့မတက်မှာစိုးစိမ်စရာမလိုပါ။သင်တန်းကြေး ၁သောင်းဖြစ်ပြီး သင်တန်းလာရောက်မှသာပေးရမာဖြစ်ပါတယ်။အသေးစိတ်သိရှိလိုပါက Ph - 09771260733 သို့ဆက်သွယ်မေးမြန်းနိုင်ပါတယ်ရှင်။",
-    "quick_replies":[
-            {
-              "content_type":"text",
-              "title":"သင်တန်းစုံစမ်းမည်။",
-              "payload":"show:Weekend",              
-            },
-    ]
-  };
-  let response2 = {
-    "text": "Advanced သင်တန်းကတော့ အပတ်စဥ် စနေနဲ့တနဂ်နွေတိုင်းရှိမာဖြစ်ပါတယ်။အချိန် - 9 : 00 am - 5 : 00 pm ဖြစ်ပါသည်။Makeup အခြေခံမရှိလည်းတတ်ရောက်နိုင်မာဖြစ်ပြီးစာတွေ့လက်တွေ့သင်ကြားပေးမာမလို့မတက်မှာစိုးစိမ်စရာမလိုပါ။သင်တန်းကြေး ၁သောင်းခွဲဖြစ်ပြီး သင်တန်းလာရောက်မှသာပေးရမာဖြစ်ပါတယ်။အသေးစိတ်သိရှိလိုပါက Ph - 09771260733 သို့ဆက်သွယ်မေးမြန်းနိုင်ပါတယ်ရှင်။",
-    "quick_replies":[
-            {
-              "content_type":"text",
-              "title":"Weekend",
-              "payload":"show:advance",              
-            },
-    ]
-  };
-
-  callSend(sender_psid, response1).then(()=>{
-    return callSend(sender_psid, response2);
-  });
-}
-
+    let response = {
+      "text": "မင်္ဂလာပါ။ Glamour By Moon Page က​နေကြိုဆိုပါတယ်။"
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [{
+            "title": "Essential(Self-Makeup)",
+            "subtitle": "Makeup Class",
+            "image_url":"https://static.wixstatic.com/media/43b8cf_71e33f093e744a2b89a7d3131f079c47~mv2.jpg",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Essential Class",
+                  "payload": "class:self",
+                },               
+              ],
+          },
+          {
+            "title": "Advanced Makeup",
+            "subtitle": "Makeup Class",
+            "image_url":"https://3ewwlw1m6nye2hxpj916rtwa-wpengine.netdna-ssl.com/wp-content/uploads/2020/09/3-1024x543.png",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Advanced Makeup",
+                  "payload": "class:advance",
+                },               
+              ],
+          }
+        ]
+      }
+    }
+      }
+  callSend(sender_psid, response);
+  
+  }
 /*********************************************
 end makeup
 **********************************************/
