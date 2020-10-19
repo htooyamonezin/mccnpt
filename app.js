@@ -518,7 +518,7 @@ const handlePostback = (sender_psid, received_postback) => {
       if(payload.startsWith("class:")){
         let taskId = payload.slice(7);
         console.log('SELECTED class Is: class_name');
-        showCosmetic(sender_psid);
+        showTime(sender_psid);
       }else{
         switch(payload) {        
       case "yes":
