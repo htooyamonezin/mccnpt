@@ -610,8 +610,8 @@ const showTime =(sender_psid) => {
                   "payload": "show:no",
                 }
               ],
-          }];
         }
+        ];
       }
     }
 
