@@ -565,7 +565,7 @@ const showClass = (sender_psid) => {
           "elements": [{
             "title": "Essential(Self-Makeup)",
             "subtitle": "Makeup Class",
-            "image_url":"https://previews.123rf.com/images/loonara/loonara1611/loonara161100208/68889185-professional-makeup-brushes-and-tools-make-up-products-kit-flatlay-on-white-background.jpg",                       
+            "image_url":"https://static.wixstatic.com/media/43b8cf_71e33f093e744a2b89a7d3131f079c47~mv2.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
@@ -577,7 +577,7 @@ const showClass = (sender_psid) => {
           {
             "title": "Advanced Makeup",
             "subtitle": "Makeup Class",
-            "image_url":"https://www.foreo.com/mysa/wp-content/uploads/sites/2/2019/11/unique-skincare-diagram.jpg",                       
+            "image_url":"https://3ewwlw1m6nye2hxpj916rtwa-wpengine.netdna-ssl.com/wp-content/uploads/2020/09/3-1024x543.png",                       
             "buttons": [
                 {
                   "type": "postback",
