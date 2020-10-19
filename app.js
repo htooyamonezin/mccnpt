@@ -597,21 +597,21 @@ const showTime =(sender_psid) => {
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "Weekend သင်တန်းကတော့ အပတ်စဥ်စနေနေ့တိုင်းရှိမာဖြစ်ပါတယ်။",     
+            "title": "Weekend သင်တန်းကတော့ အပတ်စဥ်စနေနေ့တိုင်းရှိမာဖြစ်ပါတယ်။အချိန် - 9 : 00 am - 5 : 00 pm ဖြစ်ပါသည်။",    
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "Time 9am - 5pm",
+                  "title": "Sat 9am - 5pm",
                   "payload": "show:yes",
                 },
                 {
-                  "type": "Advanced သင်တန်းကတော့ အပတ်စဥ်စနေနဲ့တနဂ်နွေနေ့တိုင်းရှိမာဖြစ်ပါသည်။ ",
+                  "type": "postback",
                   "title": "No!",
                   "payload": "show:no",
                 }
               ],
+          }]
         }
-        ];
       }
     }
 
