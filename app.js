@@ -589,43 +589,36 @@ const showClass = (sender_psid) => {
   
   }
 
-const showTime = (sender_psid) => {
-    let response = {
+const showTime =(sender_psid) => {
+
+  let response = {
       "attachment": {
         "type": "template",
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "Essential(Self-Makeup)",
-            "subtitle": "Makeup Class",
-            "image_url":"https://static.wixstatic.com/media/43b8cf_71e33f093e744a2b89a7d3131f079c47~mv2.jpg",                       
+            "title": "Are you OK?",
+            "image_url":"https://www.mindrops.com/images/nodejs-image.png",                       
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "Essential Class",
-                  "payload": "class:self",
-                },               
-              ],
-          },
-          {
-            "title": "Advanced Makeup",
-            "subtitle": "Makeup Class",
-            "image_url":"https://3ewwlw1m6nye2hxpj916rtwa-wpengine.netdna-ssl.com/wp-content/uploads/2020/09/3-1024x543.png",                       
-            "buttons": [
+                  "title": "Yes!",
+                  "payload": "show:yes",
+                },
                 {
                   "type": "postback",
-                  "title": "Advanced Makeup",
-                  "payload": "class:advance",
-                },               
+                  "title": "No!",
+                  "payload": "show:no",
+                }
               ],
-          }
-        ]
+          }]
+        }
       }
     }
-      }
-  callSend(sender_psid, response);
+
   
-  }
+  callSend(sender_psid, response);
+}
 /*********************************************
 end makeup
 **********************************************/
