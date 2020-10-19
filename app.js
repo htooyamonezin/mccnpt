@@ -321,8 +321,8 @@ function handleQuickReply(sender_psid, received_message) {
       }else{
 
   switch(received_message) {   
-        case "makeup review":
-          showReview(sender_psid);
+        case "class":
+          showClass(sender_psid);
           break;
           case "skincare":
           showSkincare(sender_psid);
@@ -519,7 +519,6 @@ const handlePostback = (sender_psid, received_postback) => {
         let taskId = payload.slice(7);
         console.log('SELECTED Review Is: Review_name');
         showCosmetic(sender_psid);
-        showSkincare(sender_psid);
       }else{
         switch(payload) {        
       case "yes":
@@ -560,7 +559,7 @@ const makeupType = (sender_psid) => {
   });
 }
 
-const showReview = (sender_psid) => {
+const showClass = (sender_psid) => {
     let response = {
       "attachment": {
         "type": "template",
@@ -587,18 +586,6 @@ const showReview = (sender_psid) => {
                   "type": "postback",
                   "title": "Skincare Review",
                   "payload": "skincare",
-                },               
-              ],
-          },
-                    {
-            "title": "Makeup Look",
-            "subtitle": "Makeup Review",
-            "image_url":"https://image.shutterstock.com/image-vector/background-fashion-cosmetics-patch-badges-260nw-722600308.jpg",                       
-            "buttons": [
-                {
-                  "type": "postback",
-                  "title": "Makeup Look",
-                  "payload": "Review:Makeup Look",
                 },               
               ],
           }
