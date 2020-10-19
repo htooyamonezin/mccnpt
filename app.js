@@ -515,9 +515,9 @@ const handlePostback = (sender_psid, received_postback) => {
 
       console.log('BUTTON PAYLOAD', payload);
 
-      if(payload.startsWith("Review:")){
+      if(payload.startsWith("class:")){
         let taskId = payload.slice(7);
-        console.log('SELECTED Review Is: Review_name');
+        console.log('SELECTED class Is: class_name');
         showCosmetic(sender_psid);
       }else{
         switch(payload) {        
@@ -566,14 +566,14 @@ const showClass = (sender_psid) => {
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "Essential(Self-Makeup)",
+            "title": "Essential(Self-Makeup) Time 9 am - 5pm only one day",
             "subtitle": "Makeup Class",
             "image_url":"https://previews.123rf.com/images/loonara/loonara1611/loonara161100208/68889185-professional-makeup-brushes-and-tools-make-up-products-kit-flatlay-on-white-background.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
                   "title": "Essential Class",
-                  "payload": "self",
+                  "payload": "class:self",
                 },               
               ],
           },
@@ -585,7 +585,7 @@ const showClass = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Advanced Makeup",
-                  "payload": "advance",
+                  "payload": "class:advance",
                 },               
               ],
           }
@@ -597,14 +597,14 @@ const showClass = (sender_psid) => {
   
   }
 
-  const showCosmetic = (sender_psid) => {
+  const showTime = (sender_psid) => {
     let response = {
       "attachment": {
         "type": "template",
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "Bella and Hearty Heart Product",
+            "title": "Weekend",
             "subtitle": "Cosmetic Review",
             "image_url":"https://www.sydnestyle.com/wp-content/uploads/2020/05/Sydne-Style-shares-the-best-beauty-products-to-use-for-a-natural-makeup-look-for-zoom-meetings.jpg",                       
             "buttons": [
@@ -627,18 +627,6 @@ const showClass = (sender_psid) => {
                 },               
              ],
           },
-            {
-            "title": "Maybelline Product",
-            "subtitle": "Cosmetic Review",
-            "image_url":"https://www.lorealparisusa.com/~/media/images/lop/home/beauty-library/articles-2/shimmer-eyeshadow/loreal-paris-bmag-article-how-to-pull-off-a-shimmery-eyeshadow-look-d.jpg",                       
-            "buttons": [
-                {
-                  "type": "postback",
-                  "title": "View Product",
-                  "payload": "show:Product",
-                },               
-          ],
-          }
         ]
       }
     }
@@ -647,58 +635,36 @@ const showClass = (sender_psid) => {
   callSend(sender_psid, response);
   
   }
+const showTime =(sender_psid) => {
 
-    const showSkincare = (sender_psid) => {
-    let response = {
+  let response = {
       "attachment": {
         "type": "template",
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "Bella and Hearty Heart Product",
-            "subtitle": "Cosmetic Review",
-            "image_url":"https://www.sydnestyle.com/wp-content/uploads/2020/05/Sydne-Style-shares-the-best-beauty-products-to-use-for-a-natural-makeup-look-for-zoom-meetings.jpg",                       
+            "title": "Are you OK?",
+            "image_url":"https://www.mindrops.com/images/nodejs-image.png",                       
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "View Product",
-                  "payload": "show:Product",
-                },               
+                  "title": "Yes!",
+                  "payload": "yes",
+                },
+                {
+                  "type": "postback",
+                  "title": "No!",
+                  "payload": "no",
+                }
               ],
-          },
-          {
-            "title": "L'oreal Product",
-            "subtitle": "Cosmetic Review",
-            "image_url":"https://www.lorealparisusa.com/~/media/images/lop/home/beauty-library/articles-2/shimmer-eyeshadow/loreal-paris-bmag-article-how-to-pull-off-a-shimmery-eyeshadow-look-d.jpg",                       
-            "buttons": [
-                {
-                  "type": "postback",
-                  "title": "View Product",
-                  "payload": "show:Product",
-                },               
-             ],
-          },
-            {
-            "title": "Maybelline Product",
-            "subtitle": "Cosmetic Review",
-            "image_url":"https://www.lorealparisusa.com/~/media/images/lop/home/beauty-library/articles-2/shimmer-eyeshadow/loreal-paris-bmag-article-how-to-pull-off-a-shimmery-eyeshadow-look-d.jpg",                       
-            "buttons": [
-                {
-                  "type": "postback",
-                  "title": "View Product",
-                  "payload": "show:Product",
-                },               
-          ],
-          }
-        ]
+          }]
+        }
       }
     }
-      }
 
-  callSend(sender_psid, response);
   
-  }
-
+  callSend(sender_psid, response);
+}
 /*********************************************
 end makeup
 **********************************************/
