@@ -604,11 +604,6 @@ const showTime =(sender_psid) => {
                   "title": "Sat 9am - 5pm",
                   "payload": "show:yes",
                 },
-                {
-                  "type": "postback",
-                  "title": "No!",
-                  "payload": "show:no",
-                }
               ],
           }]
         }
