@@ -322,7 +322,7 @@ function handleQuickReply(sender_psid, received_message) {
 
   switch(received_message) {   
         case "class":
-          showClass(sender_psid);
+          showTime(sender_psid);
           break;   
         case "on":
             showQuickReplyOn(sender_psid);
@@ -515,7 +515,7 @@ const handlePostback = (sender_psid, received_postback) => {
       if(payload.startsWith("class:")){
         let taskId = payload.slice(7);
         console.log('SELECTED class Is: class_name');
-        showTime(sender_psid);
+        showClass(sender_psid);
       }else{
         switch(payload) {        
       case "yes":
