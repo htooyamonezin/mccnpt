@@ -566,26 +566,26 @@ const showClass = (sender_psid) => {
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "Cosmetic Review",
-            "subtitle": "Makeup Review",
+            "title": "Essential(Self-Makeup)",
+            "subtitle": "Makeup Class",
             "image_url":"https://previews.123rf.com/images/loonara/loonara1611/loonara161100208/68889185-professional-makeup-brushes-and-tools-make-up-products-kit-flatlay-on-white-background.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "Cosmetic Review",
-                  "payload": "Review:Cosmetic",
+                  "title": "Essential Class",
+                  "payload": "self",
                 },               
               ],
           },
           {
-            "title": "Skincare Product",
-            "subtitle": "Makeup Review",
+            "title": "Advanced Makeup",
+            "subtitle": "Makeup Class",
             "image_url":"https://www.foreo.com/mysa/wp-content/uploads/sites/2/2019/11/unique-skincare-diagram.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "Skincare Review",
-                  "payload": "skincare",
+                  "title": "Advanced Makeup",
+                  "payload": "advance",
                 },               
               ],
           }
