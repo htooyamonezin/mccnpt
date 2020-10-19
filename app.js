@@ -315,14 +315,14 @@ function handleQuickReply(sender_psid, received_message) {
 
     received_message = received_message.toLowerCase();
 
-  if(received_message.startsWith("show:")){
-        let show = received_message.slice(6);
-        console.log('show: ', show);
+  if(received_message.startsWith("week:")){
+        let week = received_message.slice(6);
+        console.log('week: week_name');
       }else{
 
   switch(received_message) {   
         case "class":
-          showClass(sender_psid);
+          showTime(sender_psid);
           break;   
         case "on":
             showQuickReplyOn(sender_psid);
@@ -610,7 +610,7 @@ const showTime = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Essential Class",
-                  "payload": "show:Weekend",
+                  "payload": "week:Weekend",
                 },               
               ],
           },
@@ -632,7 +632,7 @@ const showTime = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Advanced Makeup",
-                  "payload": "class:advance",
+                  "payload": "week:advance",
                 },               
               ],
           }
