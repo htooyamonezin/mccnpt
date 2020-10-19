@@ -635,36 +635,6 @@ const showClass = (sender_psid) => {
   callSend(sender_psid, response);
   
   }
-const showTime =(sender_psid) => {
-
-  let response = {
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "generic",
-          "elements": [{
-            "title": "Are you OK?",
-            "image_url":"https://www.mindrops.com/images/nodejs-image.png",                       
-            "buttons": [
-                {
-                  "type": "postback",
-                  "title": "Yes!",
-                  "payload": "yes",
-                },
-                {
-                  "type": "postback",
-                  "title": "No!",
-                  "payload": "no",
-                }
-              ],
-          }]
-        }
-      }
-    }
-
-  
-  callSend(sender_psid, response);
-}
 /*********************************************
 end makeup
 **********************************************/
