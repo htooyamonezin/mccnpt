@@ -314,12 +314,6 @@ function handleQuickReply(sender_psid, received_message) {
     console.log('QUICK REPLY', received_message);
 
     received_message = received_message.toLowerCase();
-
-  if(received_message.startsWith("show:")){
-        let show = received_message.slice(6);
-        console.log('show: ', show);
-      }else{
-
   switch(received_message) {   
         case "class":
           showTime(sender_psid);
@@ -333,7 +327,7 @@ function handleQuickReply(sender_psid, received_message) {
         default:
             defaultReply(sender_psid);
   } 
-      }
+
 
  
 }
@@ -594,7 +588,7 @@ const showClass = (sender_psid) => {
   
   }
 
-const showTime = (sender_psid) => {
+const showSelf = (sender_psid) => {
 
   let response1 = {
     "text": "Weekend သင်တန်းကတော့ အပတ်စဥ်စနေနေ့တိုင်းရှိမာဖြစ်ပါတယ်။အချိန် - 9 : 00 am - 5 : 00 pm ဖြစ်ပါသည်။Makeup အခြေခံမရှိလည်းတတ်ရောက်နိုင်မာဖြစ်ပြီးစာတွေ့လက်တွေ့သင်ကြားပေးမာမလို့မတက်မှာစိုးစိမ်စရာမလိုပါ။သင်တန်းကြေး ၁သောင်းဖြစ်ပြီး သင်တန်းလာရောက်မှသာပေးရမာဖြစ်ပါတယ်။အသေးစိတ်သိရှိလိုပါက Ph - 09771260733 သို့ဆက်သွယ်မေးမြန်းနိုင်ပါတယ်ရှင်။",
@@ -602,24 +596,12 @@ const showTime = (sender_psid) => {
             {
               "content_type":"text",
               "title":"သင်တန်းစုံစမ်းမည်။",
-              "payload":"show:Weekend",              
-            },
-    ]
-  };
-  let response2 = {
-    "text": "Advanced သင်တန်းကတော့ အပတ်စဥ် စနေနဲ့တနဂ်နွေတိုင်းရှိမာဖြစ်ပါတယ်။အချိန် - 9 : 00 am - 5 : 00 pm ဖြစ်ပါသည်။Makeup အခြေခံမရှိလည်းတတ်ရောက်နိုင်မာဖြစ်ပြီးစာတွေ့လက်တွေ့သင်ကြားပေးမာမလို့မတက်မှာစိုးစိမ်စရာမလိုပါ။သင်တန်းကြေး ၁သောင်းခွဲဖြစ်ပြီး သင်တန်းလာရောက်မှသာပေးရမာဖြစ်ပါတယ်။အသေးစိတ်သိရှိလိုပါက Ph - 09771260733 သို့ဆက်သွယ်မေးမြန်းနိုင်ပါတယ်ရှင်။",
-    "quick_replies":[
-            {
-              "content_type":"text",
-              "title":"Weekend",
-              "payload":"show:advance",              
+              "payload":"Weekend",              
             },
     ]
   };
 
-  callSend(sender_psid, response1).then(()=>{
-    return callSend(sender_psid, response2);
-  });
+  callSend(sender_psid, response);
 }
 
 /*********************************************
