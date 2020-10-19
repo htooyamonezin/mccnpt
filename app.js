@@ -323,10 +323,7 @@ function handleQuickReply(sender_psid, received_message) {
   switch(received_message) {   
         case "class":
           showClass(sender_psid);
-          break;
-          case "skincare":
-          showSkincare(sender_psid);
-          break;      
+          break;   
         case "on":
             showQuickReplyOn(sender_psid);
           break;
@@ -599,22 +596,30 @@ const showClass = (sender_psid) => {
 
 const showTime = (sender_psid) => {
 
-  let response = {
+  let response1 = {
     "text": "Weekend သင်တန်းကတော့ အပတ်စဥ်စနေနေ့တိုင်းရှိမာဖြစ်ပါတယ်။အချိန် - 9 : 00 am - 5 : 00 pm ဖြစ်ပါသည်။Makeup အခြေခံမရှိလည်းတတ်ရောက်နိုင်မာဖြစ်ပြီးစာတွေ့လက်တွေ့သင်ကြားပေးမာမလို့မတက်မှာစိုးစိမ်စရာမလိုပါ။သင်တန်းကြေး ၁သောင်းဖြစ်ပြီး သင်တန်းလာရောက်မှသာပေးရမာဖြစ်ပါတယ်။အသေးစိတ်သိရှိလိုပါက Ph - 09771260733 သို့ဆက်သွယ်မေးမြန်းနိုင်ပါတယ်ရှင်။",
     "quick_replies":[
             {
               "content_type":"text",
               "title":"Weekend",
-              "payload":"show:first time",              
-            },{
-              "content_type":"text",
-              "title":"Follow Up",
-              "payload":"show:follow up",             
-            }
+              "payload":"show:သင်တန်းစုံစမ်းမည်။",              
+            },
     ]
   };
-  callSend(sender_psid, response);
+  let response2 = {
+    "text": "Weekend သင်တန်းကတော့ အပတ်စဥ်စနေနေ့တိုင်းရှိမာဖြစ်ပါတယ်။အချိန် - 9 : 00 am - 5 : 00 pm ဖြစ်ပါသည်။Makeup အခြေခံမရှိလည်းတတ်ရောက်နိုင်မာဖြစ်ပြီးစာတွေ့လက်တွေ့သင်ကြားပေးမာမလို့မတက်မှာစိုးစိမ်စရာမလိုပါ။သင်တန်းကြေး ၁သောင်းဖြစ်ပြီး သင်တန်းလာရောက်မှသာပေးရမာဖြစ်ပါတယ်။အသေးစိတ်သိရှိလိုပါက Ph - 09771260733 သို့ဆက်သွယ်မေးမြန်းနိုင်ပါတယ်ရှင်။",
+    "quick_replies":[
+            {
+              "content_type":"text",
+              "title":"Weekend",
+              "payload":"show:သင်တန်းစုံစမ်းမည်။",              
+            },
+    ]
+  };
 
+  callSend(sender_psid, response1).then(()=>{
+    return callSend(sender_psid, response2);
+  });
 }
 
 /*********************************************
