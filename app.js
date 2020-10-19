@@ -321,9 +321,7 @@ function handleQuickReply(sender_psid, received_message) {
       }else{
 
   switch(received_message) {   
-        case "class":
-          showClass(sender_psid);
-          break;   
+ 
         case "on":
             showQuickReplyOn(sender_psid);
           break;
