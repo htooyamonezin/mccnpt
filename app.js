@@ -608,7 +608,7 @@ const showTime =(sender_psid) => {
                   "type": "Advanced သင်တန်းကတော့ ဒီတစ်ပတ်စနေနဲ့တနဂ်နွေနေ့တိုင်းရှိမာဖြစ်ပါသည်။ ",
                   "title": "Sat&Sun Time 9am - 5pm",
                   "payload": "show:no",
-                }
+                },
               ],
           }]
         }
