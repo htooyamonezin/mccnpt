@@ -569,7 +569,7 @@ const threeReview = (sender_psid) => {
           "elements": [{
             "title": "Cosmetic Product Review",
             "subtitle": "Makeup Review",
-            "image_url":"https://static.wixstatic.com/media/43b8cf_71e33f093e744a2b89a7d3131f079c47~mv2.jpg",                       
+            "image_url":"https://newlifeskincare.site/wp-content/uploads/2019/10/cosmetics.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
@@ -581,7 +581,7 @@ const threeReview = (sender_psid) => {
           {
             "title": "Skincare Product Review",
             "subtitle": "Makeup Review",
-            "image_url":"https://3ewwlw1m6nye2hxpj916rtwa-wpengine.netdna-ssl.com/wp-content/uploads/2020/09/3-1024x543.png",                       
+            "image_url":"https://previews.123rf.com/images/etoileark/etoileark1701/etoileark170100408/69378694-cartoon-girl-care-her-face-skin-care-beauty.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
@@ -593,7 +593,7 @@ const threeReview = (sender_psid) => {
           {
             "title": "Makeup Look Review",
             "subtitle": "Makeup Review",
-            "image_url":"https://3ewwlw1m6nye2hxpj916rtwa-wpengine.netdna-ssl.com/wp-content/uploads/2020/09/3-1024x543.png",                       
+            "image_url":"https://image.shutterstock.com/image-vector/handdrawn-womans-fresh-makeup-look-600w-745270495.jpg",                       
             "buttons": [
                 {
                   "type": "postback",
