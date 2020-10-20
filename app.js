@@ -318,7 +318,10 @@ function handleQuickReply(sender_psid, received_message) {
   switch(received_message) {   
         case "class":
           showClass(sender_psid);
-          break;   
+          break;
+        case "makeup review":
+          threeReview(sender_psid);
+          break;  
         case "on":
             showQuickReplyOn(sender_psid);
           break;
@@ -403,6 +406,9 @@ const handleMessage = (sender_psid, received_message) => {
           switch(user_message) {
         case "hi":
           greeting(sender_psid);
+          break;
+        case "makeup":
+          makeupType(sender_psid);
           break;
         case "makeup":
           makeupType(sender_psid);
@@ -553,6 +559,57 @@ const makeupType = (sender_psid) => {
     return callSend(sender_psid, response2);
   });
 }
+
+const threeReview = (sender_psid) => {
+    let response = {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [{
+            "title": "Cosmetic Product Review",
+            "subtitle": "Makeup Review",
+            "image_url":"https://static.wixstatic.com/media/43b8cf_71e33f093e744a2b89a7d3131f079c47~mv2.jpg",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Cosmetic Review",
+                  "payload": "review:cosmetic",
+                },               
+              ],
+          },
+          {
+            "title": "Skincare Product Review",
+            "subtitle": "Makeup Review",
+            "image_url":"https://3ewwlw1m6nye2hxpj916rtwa-wpengine.netdna-ssl.com/wp-content/uploads/2020/09/3-1024x543.png",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Skincare Review",
+                  "payload": "review:skincare",
+                },               
+              ],
+          },
+          {
+            "title": "Makeup Look Review",
+            "subtitle": "Makeup Review",
+            "image_url":"https://3ewwlw1m6nye2hxpj916rtwa-wpengine.netdna-ssl.com/wp-content/uploads/2020/09/3-1024x543.png",                       
+            "buttons": [
+                {
+                  "type": "postback",
+                  "title": "Makeup Look Review",
+                  "payload": "review:look",
+                },               
+              ],
+          }
+        ]
+      }
+    }
+      }
+  callSend(sender_psid, response);
+  
+  }
+
 
 const showClass = (sender_psid) => {
     let response = {
