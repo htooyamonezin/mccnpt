@@ -659,15 +659,26 @@ const showTime =(sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Sat 9am - 5pm",
-                  "payload": "yes",
+                  "payload": "click:one day",
                 },
               ],
-            "title": "ဒီတစ်ပတ်စနေနေ့ One Day Weekend Self-Makeup Classရှိပါသည်။",    
+          }
+          ]
+        }
+      }
+    }
+      let response3 = {
+      "attachment": {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [{
+            "title": "ဒီတစ်ပတ်စနေနေ့ကစပြီး တစ်လပြတ် Advanced Makeup Classရှိပါသည်။",    
             "buttons": [
                 {
                   "type": "postback",
                   "title": "Sat 9am - 5pm",
-                  "payload": "yes",
+                  "payload": "click:one day",
                 },
               ],
           }
@@ -676,8 +687,10 @@ const showTime =(sender_psid) => {
       }
     }
  callSend(sender_psid, response1).then(()=>{
-    return callSend(sender_psid, response2);
+    return callSend(sender_psid, response2).then(()=>{
+  return callSend(sender_psid, response3);
   });
+   });
 }
 
 /*********************************************
