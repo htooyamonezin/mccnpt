@@ -662,8 +662,8 @@ const showTime =(sender_psid) => {
                   "payload": "yes",
                 },
               ],
-          }
-{
+          };
+          {
             "title": "ဒီတစ်ပတ်စနေနေ့ One Day Weekend Self-Makeup Classရှိပါသည်။",    
             "buttons": [
                 {
