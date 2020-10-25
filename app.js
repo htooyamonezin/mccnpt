@@ -516,24 +516,7 @@ const handlePostback = (sender_psid, received_postback) => {
       if(payload.startsWith("class:")){
         let taskId = payload.slice(7);
         console.log('SELECTED class Is: class_name');
-        showSelfTime(sender_psid);
-      }else{
-        switch(payload) { 
-      case "yes":
-          showButtonReplyYes(sender_psid);
-        break;
-      case "no":
-          showButtonReplyNo(sender_psid);
-        break;                      
-      default:
-          defaultReply(sender_psid);
-         } 
-
-      }
-            if(payload.startsWith("adv:")){
-        let taskId = payload.slice(7);
-        console.log('SELECTED adv Is: adv_name');
-        showAdvancedTime(sender_psid);
+        showTime(sender_psid);
       }else{
         switch(payload) { 
       case "yes":
@@ -651,7 +634,7 @@ const showClass = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Advanced Makeup",
-                  "payload": "adv:advance",
+                  "payload": "class:advance",
                 },               
               ],
           }
@@ -663,7 +646,7 @@ const showClass = (sender_psid) => {
   
   }
 
-const showSelfTime =(sender_psid) => {
+const showTime =(sender_psid) => {
    let response1 = {"text": "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"};
   let response2 = {
       "attachment": {
@@ -679,24 +662,9 @@ const showSelfTime =(sender_psid) => {
                   "payload": "yes",
                 },
               ],
-          }]
-        }
-      }
-    }
- callSend(sender_psid, response1).then(()=>{
-    return callSend(sender_psid, response2);
-  });
-}
-
-const showAdvanceTime =(sender_psid) => {
-   let response1 = {"text": "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"};
-  let response2 = {
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "generic",
-          "elements": [{
-            "title": "ဒီတစ်ပတ်စနေနေ့ Advanced Makeup Classရှိပါသည်။",    
+          }
+{
+            "title": "ဒီတစ်ပတ်စနေနေ့ One Day Weekend Self-Makeup Classရှိပါသည်။",    
             "buttons": [
                 {
                   "type": "postback",
@@ -704,7 +672,8 @@ const showAdvanceTime =(sender_psid) => {
                   "payload": "yes",
                 },
               ],
-          }]
+          }
+          ]
         }
       }
     }
