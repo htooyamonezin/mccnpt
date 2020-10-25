@@ -516,12 +516,26 @@ const handlePostback = (sender_psid, received_postback) => {
       if(payload.startsWith("class:")){
         let taskId = payload.slice(7);
         console.log('SELECTED class Is: class_name');
-        showTime(sender_psid);
+        showSelfTime(sender_psid);
       }else{
         switch(payload) { 
-      case "advance":
-          showAdvance(sender_psid);
+      case "yes":
+          showButtonReplyYes(sender_psid);
         break;
+      case "no":
+          showButtonReplyNo(sender_psid);
+        break;                      
+      default:
+          defaultReply(sender_psid);
+         } 
+
+      };
+            if(payload.startsWith("adv:")){
+        let taskId = payload.slice(7);
+        console.log('SELECTED adv Is: adv_name');
+        showAdvancedTime(sender_psid);
+      }else{
+        switch(payload) { 
       case "yes":
           showButtonReplyYes(sender_psid);
         break;
@@ -637,7 +651,7 @@ const showClass = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Advanced Makeup",
-                  "payload": "class:advance",
+                  "payload": "adv:advance",
                 },               
               ],
           }
@@ -649,26 +663,33 @@ const showClass = (sender_psid) => {
   
   }
 
-const showTime =(sender_psid) => {
-
-  let response1 = {
+const showSelfTime =(sender_psid) => {
+   let response1 = {"text": "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"};
+  let response2 = {
       "attachment": {
         "type": "template",
         "payload": {
           "template_type": "generic",
           "elements": [{
-            "title": "ဒီတစ်ပတ်စနေနေ့ Weekend Self-Makeup Classရှိပါသည်။",    
+            "title": "ဒီတစ်ပတ်စနေနေ့ One Day Weekend Self-Makeup Classရှိပါသည်။",    
             "buttons": [
                 {
                   "type": "postback",
                   "title": "Sat 9am - 5pm",
-                  "payload": "show:yes",
+                  "payload": "yes",
                 },
               ],
           }]
         }
       }
     }
+ callSend(sender_psid, response1).then(()=>{
+    return callSend(sender_psid, response2);
+  });
+}
+
+const showAdvanceTime =(sender_psid) => {
+   let response1 = {"text": "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"};
   let response2 = {
       "attachment": {
         "type": "template",
@@ -679,17 +700,15 @@ const showTime =(sender_psid) => {
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "Sat&Sun 9am - 5pm",
-                  "payload": "show:yes",
+                  "title": "Sat 9am - 5pm",
+                  "payload": "yes",
                 },
               ],
           }]
         }
       }
     }
-  
-
-  callSend(sender_psid, response1).then(()=>{
+ callSend(sender_psid, response1).then(()=>{
     return callSend(sender_psid, response2);
   });
 }
