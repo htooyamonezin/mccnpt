@@ -529,7 +529,7 @@ const handlePostback = (sender_psid, received_postback) => {
           defaultReply(sender_psid);
          } 
 
-      };
+      }
             if(payload.startsWith("adv:")){
         let taskId = payload.slice(7);
         console.log('SELECTED adv Is: adv_name');
