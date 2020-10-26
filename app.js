@@ -501,10 +501,14 @@ const handlePostback = (sender_psid, received_postback) => {
       if(payload.startsWith("class:")){
         let taskId = payload.slice(7);
         console.log('SELECTED class Is: class_name');
-        current_question = 'q1';
-        botQuestions(current_question, sender_psid);
         showTime(sender_psid);
-      }else{
+      }else if(payload.startsWith("click:")){
+        let taskId = payload.slice(7);
+        console.log('SELECTED click Is: click_name');
+        current_question = 'q1';
+        botQuestions(current_question, sender_psid);     
+      }
+        else{
         switch(payload) { 
       case "yes":
           showButtonReplyYes(sender_psid);
@@ -645,7 +649,7 @@ const showTime =(sender_psid) => {
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "Sat 9am - 5pm",
+                  "title": "Click Self-Makeup Class",
                   "payload": "click:one day",
                 },
               ],
@@ -664,7 +668,7 @@ const showTime =(sender_psid) => {
             "buttons": [
                 {
                   "type": "postback",
-                  "title": "Sat 9am - 5pm",
+                  "title": "Click Advanced Class",
                   "payload": "click:one day",
                 },
               ],
