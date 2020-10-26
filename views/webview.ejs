@@ -31,9 +31,9 @@
     };
   </script>
   
-	<h1><%= title %></h1>
+  <h1><%= title %></h1>
 
-  <form id="form" enctype="multipart/form-data" method="post" action="https://fbstarter.herokuapp.com/webview/">
+  <form id="form" enctype="multipart/form-data" method="post" action="https://naynewbot.herokuapp.com/webview/">
   <div class="form-group">
     <label for="name">Name</label>
     <input type="text" class="form-control" id="name" name="name" placeholder="Enter name">    
@@ -51,18 +51,18 @@
   </form>
 
 
-	
+  
   <script>
       
    
       const windowShut = () => {
-        MessengerExtensions.requestCloseBrowser(function success() {
+   
+          MessengerExtensions.requestCloseBrowser(function success() {
           console.log("success");          
         }, function error(err) {
           console.log(err);
         });
-      }
-
+        }
       
       document.getElementById("form").addEventListener("submit", windowShut);       
 

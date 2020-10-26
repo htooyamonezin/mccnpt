@@ -35,26 +35,18 @@ let current_question = '';
 
 let user_id = ''; 
 
-let userInputs[user_id] = {
-  'class':'',
-  'click':'',
-  'name';'',
-  'phone':'',
-  'address':'',
-  'email':'',
-  'message':''
-};
+let userInputs = [];
 
 //app.locals.pageAccessToken = process.env.PAGE_ACCESS_TOKEN;
 
-var storage = multer.diskStorage({
+/*var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'uploads/')
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname);
   }
-})
+})*/
 
 const upload = multer({ 
   storage: multer.memoryStorage(),
@@ -151,6 +143,76 @@ app.post('/test',function(req,res){
     const sender_psid = req.body.sender_id;     
     let response = {"text": "You  click delete button"};
     callSend(sender_psid, response);
+});
+
+app.get('/admin/registration', async function(req,res){
+ 
+  const registrationRef = db.collection('registration');
+  const snapshot = await registrationRef.get();
+
+  if (snapshot.empty) {
+    res.send('no data');
+  } 
+
+  let data = []; 
+
+  snapshot.forEach(doc => {
+    let appointment = {};
+    appointment = doc.data();
+    appointment.doc_id = doc.id;
+
+    data.push(registration);
+    
+  });
+
+  console.log('DATA:', data);
+
+  res.render('registration.ejs', {data:data});
+  
+});
+
+app.get('/admin/updateregistration/:doc_id', async function(req,res){
+  let doc_id = req.params.doc_id; 
+  
+  const appoinmentRef = db.collection('registration').doc(doc_id);
+  const doc = await appoinmentRef.get();
+  if (!doc.exists) {
+    console.log('No such document!');
+  } else {
+    console.log('Document data:', doc.data());
+    let data = doc.data();
+    data.doc_id = doc.id;
+
+    console.log('Document data:', data);
+    res.render('editappointment.ejs', {data:data});
+  } 
+
+});
+
+
+app.post('/admin/updateregistration', function(req,res){
+  console.log('REQ:', req.body); 
+
+  
+
+  let data = {
+    name:req.body.name,
+    phone:req.body.phone,
+    email:req.body.email,
+    class:req.body.class,
+    click:req.body.click,
+    message:req.body.message,
+    status:req.body.status,
+    doc_id:req.body.doc_id,
+    ref:req.body.ref,
+    comment:req.body.comment
+  }
+
+  db.collection('registration').doc(req.body.doc_id)
+  .update(data).then(()=>{
+      res.redirect('/admin/registration');
+  }).catch((err)=>console.log('ERROR:', error)); 
+ 
 });
 
 /*********************************************
