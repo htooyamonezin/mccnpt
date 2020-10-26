@@ -350,10 +350,12 @@ const handleMessage = (sender_psid, received_message) => {
      handleAttachments(sender_psid, received_message.attachments);
   }else if(current_question == 'q1'){
      console.log('FULL NAME ENTERED',received_message.text);
+     userInputs[user_id].name = received_message.text;
      current_question = 'q2';
      botQuestions(current_question, sender_psid);
   }else if(current_question == 'q2'){
      console.log('PHONE NUMBER ENTERED',received_message.text);
+     userInputs[user_id].phone = received_message.text;
      current_question = 'q3';
      botQuestions(current_question, sender_psid);
   }else if(current_question == 'q3'){
@@ -371,7 +373,7 @@ const handleMessage = (sender_psid, received_message) => {
      userInputs[user_id].message = received_message.text;
      current_question = '';
      
-     confirmAppointment(sender_psid);
+     confirmRegistration(sender_psid);
   } else {
       
       let user_message = received_message.text;
@@ -693,6 +695,54 @@ const botQuestions = (current_question, sender_psid) => {
     let response = {"text": bot_questions.q5};
     callSend(sender_psid, response);
   }
+}
+
+const confirmRegistration = (sender_psid) => {
+  console.log('Registration INFO', userInputs);
+  let summery = "class:" + userInputs[user_id].class + "\u000A";
+  summery += "click:" + userInputs[user_id].click + "\u000A";
+  summery += "name:" + userInputs[user_id].name + "\u000A";
+  summery += "phone:" + userInputs[user_id].phone + "\u000A";
+  summery += "address:" + userInputs[user_id].address + "\u000A";
+  summery += "email:" + userInputs[user_id].email + "\u000A";
+  summery += "message:" + userInputs[user_id].message + "\u000A";
+
+  let response1 = {"text": summery};
+
+  let response2 = {
+    "text": "Select your reply",
+    "quick_replies":[
+            {
+              "content_type":"text",
+              "title":"Confirm",
+              "payload":"confirm-appointment",              
+            },{
+              "content_type":"text",
+              "title":"Cancel",
+              "payload":"off",             
+            }
+    ]
+  };
+  
+  callSend(sender_psid, response1).then(()=>{
+    return callSend(sender_psid, response2);
+  });
+}
+
+const saveAppointment = (arg, sender_psid) => {
+  let data = arg;
+  data.ref = generateRandom(6);
+  data.status = "pending";
+  db.collection('appointments').add(data).then((success)=>{
+    console.log('SAVED', success);
+    let text = "Thank you. We have received your appointment."+ "\u000A";
+    text += " We wil call you to confirm soon"+ "\u000A";
+    text += "Your booking reference number is:" + data.ref;
+    let response = {"text": text};
+    callSend(sender_psid, response);
+  }).catch((err)=>{
+     console.log('Error', err);
+  });
 }
 
 /*********************************************
