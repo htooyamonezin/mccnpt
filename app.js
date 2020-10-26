@@ -23,21 +23,22 @@ const uuidv4 = uuid();
 app.use(body_parser.json());
 app.use(body_parser.urlencoded());
 
+const bot_questions = {
+  "q1": "တက်ရောက်မည့်သူ၏နာမည် ကိုရိုက်ထည့်ပါ။",
+  "q2": "ဆက်သွယ်ရန် ဖုန်းနံပါတ်ရိုက်ထည့်ပါ။",
+  "q3": "နေရပ်လိပ်စာအပြည့်အစုံရိုက်ထည့်ပါ။",
+  "q4": "Email ရှိ၊မရှိ။? ရှိလျှင် Email လိပ်စာရိုက်ထည့်ပါ။ မရှိလျှင် 'မရှိ'ဟုရိုက်ထည့်ပါ။",
+  "q5": "please leave a message"
+}
+
+let current_question = '';
+
+let user_id = ''; 
+
+let userInputs = [];
 
 //app.locals.pageAccessToken = process.env.PAGE_ACCESS_TOKEN;
 
-let bot_q = {
-  askPhone: false,
-  askHotel: false,
-  askRestaurent:false
-}
-
-let user_input = {};
-
-
-
-
-  
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'uploads/')
@@ -516,6 +517,8 @@ const handlePostback = (sender_psid, received_postback) => {
       if(payload.startsWith("class:")){
         let taskId = payload.slice(7);
         console.log('SELECTED class Is: class_name');
+        current_question = 'q1';
+        botQuestions(current_question, sender_psid);
         showTime(sender_psid);
       }else{
         switch(payload) { 
@@ -691,6 +694,31 @@ const showTime =(sender_psid) => {
   return callSend(sender_psid, response3);
   });
    });
+}
+
+const botQuestions = (current_question, sender_psid) => {
+  if(current_question == 'q1'){
+    let response = {"text": bot_questions.q1};
+    callSend(sender_psid, response);
+  }else if(current_question == 'q2'){
+    let response = {"text": bot_questions.q2};
+    callSend(sender_psid, response);
+  }else if(current_question == 'q3'){
+    let response = {"text": bot_questions.q3};
+    callSend(sender_psid, response);
+  }else if(current_question == 'q4'){
+    let response = {"text": bot_questions.q4};
+    callSend(sender_psid, response);
+  }else if(current_question == 'q5'){
+    let response = {"text": bot_questions.q5};
+    callSend(sender_psid, response);
+  }else if(current_question == 'q6'){
+    let response = {"text": bot_questions.q6};
+    callSend(sender_psid, response);
+  }else if(current_question == 'q7'){
+    let response = {"text": bot_questions.q7};
+    callSend(sender_psid, response);
+  }
 }
 
 /*********************************************
