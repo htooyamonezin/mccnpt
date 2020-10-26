@@ -35,7 +35,15 @@ let current_question = '';
 
 let user_id = ''; 
 
-let userInputs = [];
+let userInputs[user_id] = {
+  'class':'',
+  'click':'',
+  'name';'',
+  'phone':'',
+  'address':'',
+  'email':'',
+  'message':''
+};
 
 //app.locals.pageAccessToken = process.env.PAGE_ACCESS_TOKEN;
 
@@ -100,6 +108,13 @@ app.post('/webhook', (req, res) => {
       let webhook_event = entry.messaging[0];
       let sender_psid = webhook_event.sender.id; 
 
+      user_id = sender_psid; 
+
+      if(!userInputs[user_id]){
+        userInputs[user_id] = {};
+      }    
+
+
       if (webhook_event.message) {
         if(webhook_event.message.quick_reply){
             handleQuickReply(sender_psid, webhook_event.message.quick_reply.payload);
@@ -120,7 +135,6 @@ app.post('/webhook', (req, res) => {
   }
 
 });
-
 app.use('/uploads', express.static('uploads'));
 
 
@@ -350,22 +364,27 @@ const handleMessage = (sender_psid, received_message) => {
      handleAttachments(sender_psid, received_message.attachments);
   }else if(current_question == 'q1'){
      console.log('FULL NAME ENTERED',received_message.text);
+          userInputs[user_id].name = received_message.text;
      current_question = 'q2';
      botQuestions(current_question, sender_psid);
   }else if(current_question == 'q2'){
      console.log('PHONE NUMBER ENTERED',received_message.text);
+          userInputs[user_id].phone = received_message.text;
      current_question = 'q3';
      botQuestions(current_question, sender_psid);
   }else if(current_question == 'q3'){
      console.log('Address ENTERED',received_message.text);
+          userInputs[user_id].address = received_message.text;
      current_question = 'q4';
      botQuestions(current_question, sender_psid);
   }else if(current_question == 'q4'){
      console.log('EMAIL ENTERED',received_message.text);
+          userInputs[user_id].email = received_message.text;
      current_question = 'q5';
      botQuestions(current_question, sender_psid);
   }else if(current_question == 'q5'){
      console.log('MESSAGE ENTERED',received_message.text);
+          userInputs[user_id].message = received_message.text;
      current_question = '';
      
      confirmRegistration(sender_psid);
@@ -486,10 +505,12 @@ const handlePostback = (sender_psid, received_postback) => {
       if(payload.startsWith("class:")){
         let taskId = payload.slice(7);
         console.log('SELECTED class Is: class_name');
+                userInputs[user_id].class = class_name;
         showTime(sender_psid);
       }else if(payload.startsWith("click:")){
         let taskId = payload.slice(7);
         console.log('SELECTED click Is: click_name');
+        userInputs[user_id].click = click_name;
         current_question = 'q1';
         botQuestions(current_question, sender_psid);     
       }else if(received_message.startsWith("class:")){
