@@ -691,7 +691,7 @@ const showTime =(sender_psid) => {
 const botQuestions = (current_question, sender_psid) => {
   if(current_question == 'q1'){
     let response = {"text": bot_questions.q1};
-    callSend(sender_psid, response);
+    callSend(sender_psid, resp onse);
   }else if(current_question == 'q2'){
     let response = {"text": bot_questions.q2};
     callSend(sender_psid, response);
@@ -703,12 +703,6 @@ const botQuestions = (current_question, sender_psid) => {
     callSend(sender_psid, response);
   }else if(current_question == 'q5'){
     let response = {"text": bot_questions.q5};
-    callSend(sender_psid, response);
-  }else if(current_question == 'q6'){
-    let response = {"text": bot_questions.q6};
-    callSend(sender_psid, response);
-  }else if(current_question == 'q7'){
-    let response = {"text": bot_questions.q7};
     callSend(sender_psid, response);
   }
 }
