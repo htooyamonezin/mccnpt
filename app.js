@@ -567,7 +567,6 @@ const handlePostback = (sender_psid, received_postback) => {
       if(payload.startsWith("class:")){
         let taskId = payload.slice(7);
         console.log('SELECTED class Is: class_name');
-                userInputs[user_id].class = class_name;
         showTime(sender_psid);
       }else if(payload.startsWith("click:")){
         let taskId = payload.slice(7);
