@@ -350,27 +350,22 @@ const handleMessage = (sender_psid, received_message) => {
      handleAttachments(sender_psid, received_message.attachments);
   }else if(current_question == 'q1'){
      console.log('FULL NAME ENTERED',received_message.text);
-     userInputs[user_id].name = received_message.text;
      current_question = 'q2';
      botQuestions(current_question, sender_psid);
   }else if(current_question == 'q2'){
      console.log('PHONE NUMBER ENTERED',received_message.text);
-     userInputs[user_id].phone = received_message.text;
      current_question = 'q3';
      botQuestions(current_question, sender_psid);
   }else if(current_question == 'q3'){
      console.log('Address ENTERED',received_message.text);
-     userInputs[user_id].address = received_message.text;
      current_question = 'q4';
      botQuestions(current_question, sender_psid);
   }else if(current_question == 'q4'){
      console.log('EMAIL ENTERED',received_message.text);
-     userInputs[user_id].email = received_message.text;
      current_question = 'q5';
      botQuestions(current_question, sender_psid);
   }else if(current_question == 'q5'){
      console.log('MESSAGE ENTERED',received_message.text);
-     userInputs[user_id].message = received_message.text;
      current_question = '';
      
      confirmRegistration(sender_psid);
