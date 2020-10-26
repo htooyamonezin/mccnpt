@@ -346,62 +346,47 @@ const handleMessage = (sender_psid, received_message) => {
   //let message;
   let response;
 
-  if(bot_q.askHotel && received_message.text){
-        user_input.hotel = received_message.text;
-        bot_q.askHotel = false;        
-        askRef(sender_psid);
-      }
-
-  else if(bot_q.askRestaurent && received_message.text){
-        user_input.restaurent = received_message.text;
-        bot_q.askRestaurent = false;
-        askRef(sender_psid);
-      }
-
-  else if(bot_q.askRef && received_message.text){
-        user_input.ref = received_message.text;
-        bot_q.askRef = false;        
-        updateItinerary(sender_psid, user_input.ref);
-      }
-  
-  
-  else if(received_message.attachments){
-    let attachment_url = received_message.attachments[0].payload.url;
-    response = {
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "generic",
-          "elements": [{
-            "title": "Is this the right picture?",
-            "subtitle": "Tap a button to answer.",
-            "image_url": attachment_url,
-            "buttons": [
-              {
-                "type": "postback",
-                "title": "Yes!",
-                "payload": "yes-attachment",
-              },
-              {
-                "type": "postback",
-                "title": "No!",
-                "payload": "no-attachment",
-              }
-            ],
-          }]
-        }
-      }
-    }
-    callSend(sender_psid, response);
+  if(received_message.attachments){
+     handleAttachments(sender_psid, received_message.attachments);
+  }else if(current_question == 'q1'){
+     console.log('DATE ENTERED',received_message.text);
+     userInputs[user_id].date = received_message.text;
+     current_question = 'q2';
+     botQuestions(current_question, sender_psid);
+  }else if(current_question == 'q2'){
+     console.log('TIME ENTERED',received_message.text);
+     userInputs[user_id].time = received_message.text;
+     current_question = 'q3';
+     botQuestions(current_question, sender_psid);
+  }else if(current_question == 'q3'){
+     console.log('FULL NAME ENTERED',received_message.text);
+     userInputs[user_id].name = received_message.text;
+     current_question = 'q4';
+     botQuestions(current_question, sender_psid);
+  }else if(current_question == 'q4'){
+     console.log('GENDER ENTERED',received_message.text);
+     userInputs[user_id].gender = received_message.text;
+     current_question = 'q5';
+     botQuestions(current_question, sender_psid);
+  }else if(current_question == 'q5'){
+     console.log('PHONE NUMBER ENTERED',received_message.text);
+     userInputs[user_id].phone = received_message.text;
+     current_question = 'q6';
+     botQuestions(current_question, sender_psid);
+  }else if(current_question == 'q6'){
+     console.log('EMAIL ENTERED',received_message.text);
+     userInputs[user_id].email = received_message.text;
+     current_question = 'q7';
+     botQuestions(current_question, sender_psid);
+  }else if(current_question == 'q7'){
+     console.log('MESSAGE ENTERED',received_message.text);
+     userInputs[user_id].message = received_message.text;
+     current_question = '';
+     
+     confirmAppointment(sender_psid);
   } else {
       
       let user_message = received_message.text;
-
-      if(user_message.includes("Change Booking:")){
-        let ref_num = user_message.slice(15);
-        ref_num = ref_num.trim();
-        updateBooking(sender_psid, ref_num);        
-      }else{
           user_message = user_message.toLowerCase(); 
 
           switch(user_message) {
@@ -461,8 +446,7 @@ const handleMessage = (sender_psid, received_message) => {
           break;        
         default:
             defaultReply(sender_psid);
-        }          
-      }     
+        }             
       
     }
 
