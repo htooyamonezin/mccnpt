@@ -507,7 +507,11 @@ const handlePostback = (sender_psid, received_postback) => {
         console.log('SELECTED click Is: click_name');
         current_question = 'q1';
         botQuestions(current_question, sender_psid);     
-      }
+      }else if(received_message.startsWith("class:")){
+    let dept = received_message.slice(11);
+    userInputs[user_id].class = dept;
+    showTime(sender_psid);
+  }
         else{
         switch(payload) { 
       case "yes":
