@@ -564,7 +564,11 @@ const handlePostback = (sender_psid, received_postback) => {
 
       console.log('BUTTON PAYLOAD', payload);
 
- if(payload.startsWith("click:")){
+      if(payload.startsWith("class:")){
+        let taskId = payload.slice(7);
+        console.log('SELECTED class Is: class_name');
+        showTime(sender_psid);
+      }else if(payload.startsWith("click:")){
         let taskId = payload.slice(7);
         console.log('SELECTED click Is: click_name');
         current_question = 'q1';
