@@ -568,12 +568,7 @@ const handlePostback = (sender_psid, received_postback) => {
         let taskId = payload.slice(7);
         console.log('SELECTED class Is: class_name');
         showTime(sender_psid);
-      }else if(payload.startsWith("click:")){
-        let taskId = payload.slice(7);
-        console.log('SELECTED click Is: click_name');
-        current_question = 'q1';
-        botQuestions(current_question, sender_psid);     
-      }else if(received_message.startsWith("class:")){
+      }else  if(received_message.startsWith("class:")){
     let dept = received_message.slice(11);
     userInputs[user_id].class = dept;
     showTime(sender_psid);
