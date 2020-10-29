@@ -488,22 +488,7 @@ const handleMessage = (sender_psid, received_message) => {
           break;
         case "admin":
           adminCreatePackage(sender_psid); 
-          break;         
-        case "show packages":
-          showTourPackages(sender_psid); 
-          break;        
-        case "private tour":
-          privateTour(sender_psid); 
-          break; 
-        case "update itinerary":
-          amendTour(sender_psid); 
-          break; 
-        case "change hotel":
-          askHotel(sender_psid); 
-          break;
-        case "change restaurent":
-          askRestaurent(sender_psid); 
-          break;        
+          break;                
         case "show images":
           showImages(sender_psid)
           break;
@@ -574,8 +559,8 @@ const handlePostback = (sender_psid, received_postback) => {
         current_question = 'q1';
         botQuestions(current_question, sender_psid);     
       }else if(received_message.startsWith("class:")){
-    let dept = received_message.slice(11);
-    userInputs[user_id].class = dept;
+    let clas = received_message.slice(11);
+    userInputs[user_id].class = clas;
     showTime(sender_psid);
   }
         else{
