@@ -617,7 +617,7 @@ const threeReview = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Cosmetic Review",
-                  "payload": "review:cosmetic",
+                  "payload": "cosmetic",
                 },               
               ],
           },
@@ -629,7 +629,7 @@ const threeReview = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Skincare Review",
-                  "payload": "review:skincare",
+                  "payload": "skincare",
                 },               
               ],
           },
@@ -641,7 +641,7 @@ const threeReview = (sender_psid) => {
                 {
                   "type": "postback",
                   "title": "Makeup Look Review",
-                  "payload": "review:look",
+                  "payload": "look",
                 },               
               ],
           }
