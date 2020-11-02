@@ -742,23 +742,18 @@ const showTime =(sender_psid) => {
 const botQuestions = (current_question, sender_psid) => {
   if(current_question == 'q1'){
     let response = {"text": bot_questions.q1};
-         userInputs[user_id].name = received_message.text;
     callSend(sender_psid, response);
   }else if(current_question == 'q2'){
     let response = {"text": bot_questions.q2};
-         userInputs[user_id].phone = received_message.text;
     callSend(sender_psid, response);
   }else if(current_question == 'q3'){
     let response = {"text": bot_questions.q3};
-         userInputs[user_id].address = received_message.text;
     callSend(sender_psid, response);
   }else if(current_question == 'q4'){
     let response = {"text": bot_questions.q4};
-         userInputs[user_id].email = received_message.text;
     callSend(sender_psid, response);
   }else if(current_question == 'q5'){
     let response = {"text": bot_questions.q5};
-         userInputs[user_id].message = received_message.text;
     callSend(sender_psid, response);
   }
 }
