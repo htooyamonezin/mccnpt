@@ -480,12 +480,6 @@ const handleMessage = (sender_psid, received_message) => {
         case "webview":
           webviewTest(sender_psid);
           break; 
-        case "show expiry":
-          showExpiry(sender_psid);
-          break;
-        case "hello eagle":
-          helloEagle(sender_psid); 
-          break;
         case "admin":
           adminCreatePackage(sender_psid); 
           break;                
